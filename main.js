@@ -52,7 +52,7 @@ module.exports = "<p>about-project works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"container-fluid\">\n\n  <router-outlet></router-outlet>\n\n\n\n\n</div>"
+module.exports = "<div class=\"d-flex\" id=\"wrapper\">\n\n  <div id=\"sidebar-wrapper\" [ngClass]=\"sidebarService.isToggled ? 'toggled' : 'bg-light border-right'\">\n    <div class=\"list-group list-group-flush\">\n      <app-header></app-header>\n    </div>\n  </div>\n\n  <div id=\"page-content-wrapper\" class=\"container-fluid\">\n\n    <router-outlet></router-outlet>\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -63,7 +63,7 @@ module.exports = "<app-header></app-header>\n<div class=\"container-fluid\">\n\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<div class=\"text-center\">\r\n    <div class=\"text-muted h5\">Vous êtes:</div>\r\n    <div class=\"text-muted\">Page 1</div>\r\n    <div class=\"text-muted\"> Chapitre \"Belle Plante\"</div>\r\n</div>"
 
 /***/ }),
 
@@ -96,7 +96,7 @@ module.exports = "<p>see-comments works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col-1\">\n        <button class=\"btn btn-default\" id=\"menu-toggle\"><span class=\"fas fa-bars\" aria-hidden=\"true\"></span></button>\n    </div>\n    <div class=\"col\">\n        <div class=\"d-flex justify-content-center align-items-center\">\n\n            <div>\n                <a class=\"nav-link\" routerLink=\"/page/1\"> <i class=\"p-2 fa fa-chevron-left\" aria-hidden=\"true\"></i></a>\n            </div>\n            <div class=\"p-2 vh-100\">\n                <img src=\"assets/img/image.jpg\" class=\"img-fluid\" alt=\"Responsive image\">          \n            </div>\n            <div>\n                <a class=\"nav-link\" routerLink=\"/page/1\"> <i class=\"p-2 fa fa-chevron-right\" aria-hidden=\"true\"></i></a>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>"
+module.exports = "<div class=\"row\">\n    <div class=\"col-1 \">\n        <div class=\"d-none d-sm-block\">\n            <button class=\"btn p-0\" id=\"menu-toggle\" (click)=\"toggleSideBar()\"><span class=\"fas fa-bars\"\n                    aria-hidden=\"true\"></span></button>\n        </div>\n    </div>\n    <div class=\"col\">\n        <div class=\"d-flex justify-content-center align-items-center\">\n\n            <div>\n                <a class=\"nav-link\" routerLink=\"/page/1\"> <i class=\"p-2 fa fa-chevron-left\" aria-hidden=\"true\"></i></a>\n            </div>\n            <div class=\"p-2 vh-100\">\n                <img src=\"assets/img/image.jpg\" class=\"img-fluid\" alt=\"Responsive image\">\n            </div>\n            <div>\n                <a class=\"nav-link\" routerLink=\"/page/1\"> <i class=\"p-2 fa fa-chevron-right\" aria-hidden=\"true\"></i></a>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>"
 
 /***/ }),
 
@@ -248,7 +248,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "body {\r\n  overflow-x: hidden;\r\n}\r\n\r\n#sidebar-wrapper {\r\n  min-height: 100vh;\r\n  margin-left: -15rem;\r\n  transition: margin .25s ease-out;\r\n}\r\n\r\n#sidebar-wrapper .list-group {\r\n  width: 15rem;\r\n}\r\n\r\n#sidebar-wrapper {\r\n    margin-left: 0;\r\n  }\r\n\r\n#page-content-wrapper {\r\n    min-width: 0;\r\n    width: 100%;\r\n  }\r\n\r\n#sidebar-wrapper.toggled {\r\n    margin-left: -15rem;\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsbUJBQW1CO0VBSW5CLGdDQUFnQztBQUNsQzs7QUFHQTtFQUNFLFlBQVk7QUFDZDs7QUFHRTtJQUNFLGNBQWM7RUFDaEI7O0FBRUE7SUFDRSxZQUFZO0lBQ1osV0FBVztFQUNiOztBQUVEO0lBQ0csbUJBQW1CO0VBQ3JCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcclxuICBvdmVyZmxvdy14OiBoaWRkZW47XHJcbn1cclxuXHJcbiNzaWRlYmFyLXdyYXBwZXIge1xyXG4gIG1pbi1oZWlnaHQ6IDEwMHZoO1xyXG4gIG1hcmdpbi1sZWZ0OiAtMTVyZW07XHJcbiAgLXdlYmtpdC10cmFuc2l0aW9uOiBtYXJnaW4gLjI1cyBlYXNlLW91dDtcclxuICAtbW96LXRyYW5zaXRpb246IG1hcmdpbiAuMjVzIGVhc2Utb3V0O1xyXG4gIC1vLXRyYW5zaXRpb246IG1hcmdpbiAuMjVzIGVhc2Utb3V0O1xyXG4gIHRyYW5zaXRpb246IG1hcmdpbiAuMjVzIGVhc2Utb3V0O1xyXG59XHJcblxyXG5cclxuI3NpZGViYXItd3JhcHBlciAubGlzdC1ncm91cCB7XHJcbiAgd2lkdGg6IDE1cmVtO1xyXG59XHJcblxyXG5cclxuICAjc2lkZWJhci13cmFwcGVyIHtcclxuICAgIG1hcmdpbi1sZWZ0OiAwO1xyXG4gIH1cclxuXHJcbiAgI3BhZ2UtY29udGVudC13cmFwcGVyIHtcclxuICAgIG1pbi13aWR0aDogMDtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gIH1cclxuXHJcbiAjc2lkZWJhci13cmFwcGVyLnRvZ2dsZWQge1xyXG4gICAgbWFyZ2luLWxlZnQ6IC0xNXJlbTtcclxuICB9XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -264,17 +264,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _sidebar_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sidebar.service */ "./src/app/sidebar.service.ts");
+
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    function AppComponent(sidebarService) {
+        this.sidebarService = sidebarService;
     }
+    AppComponent.ctorParameters = function () { return [
+        { type: _sidebar_service__WEBPACK_IMPORTED_MODULE_2__["SidebarService"] }
+    ]; };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! raw-loader!./app.component.html */ "./node_modules/raw-loader/index.js!./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        })
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_sidebar_service__WEBPACK_IMPORTED_MODULE_2__["SidebarService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -304,6 +311,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _publish_comment_publish_comment_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./publish-comment/publish-comment.component */ "./src/app/publish-comment/publish-comment.component.ts");
 /* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
 /* harmony import */ var _slide_show_slide_show_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./slide-show/slide-show.component */ "./src/app/slide-show/slide-show.component.ts");
+/* harmony import */ var _sidebar_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./sidebar.service */ "./src/app/sidebar.service.ts");
+
 
 
 
@@ -333,7 +342,7 @@ var AppModule = /** @class */ (function () {
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"]
             ],
-            providers: [],
+            providers: [_sidebar_service__WEBPACK_IMPORTED_MODULE_11__["SidebarService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
@@ -479,6 +488,42 @@ var SeeCommentsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/sidebar.service.ts":
+/*!************************************!*\
+  !*** ./src/app/sidebar.service.ts ***!
+  \************************************/
+/*! exports provided: SidebarService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidebarService", function() { return SidebarService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var SidebarService = /** @class */ (function () {
+    function SidebarService() {
+        //menu masque par defaut
+        this.isToggled = true;
+    }
+    SidebarService.prototype.toggleSidebar = function () {
+        //on inverse l'etat
+        this.isToggled = !this.isToggled;
+    };
+    SidebarService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], SidebarService);
+    return SidebarService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/slide-show/slide-show.component.css":
 /*!*****************************************************!*\
   !*** ./src/app/slide-show/slide-show.component.css ***!
@@ -502,20 +547,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SlideShowComponent", function() { return SlideShowComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _sidebar_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sidebar.service */ "./src/app/sidebar.service.ts");
+
 
 
 var SlideShowComponent = /** @class */ (function () {
-    function SlideShowComponent() {
+    function SlideShowComponent(sidebarService) {
+        this.sidebarService = sidebarService;
     }
     SlideShowComponent.prototype.ngOnInit = function () {
     };
+    SlideShowComponent.prototype.toggleSideBar = function () {
+        this.sidebarService.toggleSidebar();
+    };
+    SlideShowComponent.ctorParameters = function () { return [
+        { type: _sidebar_service__WEBPACK_IMPORTED_MODULE_2__["SidebarService"] }
+    ]; };
     SlideShowComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-slide-show',
             template: __webpack_require__(/*! raw-loader!./slide-show.component.html */ "./node_modules/raw-loader/index.js!./src/app/slide-show/slide-show.component.html"),
             styles: [__webpack_require__(/*! ./slide-show.component.css */ "./src/app/slide-show/slide-show.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_sidebar_service__WEBPACK_IMPORTED_MODULE_2__["SidebarService"]])
     ], SlideShowComponent);
     return SlideShowComponent;
 }());
