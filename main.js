@@ -52,18 +52,7 @@ module.exports = "<p>about-project works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex\" id=\"wrapper\">\n\n  <div id=\"sidebar-wrapper\" [ngClass]=\"sidebarService.isToggled ? 'toggled' : 'bg-light border-right'\">\n    <div class=\"list-group list-group-flush\">\n      <app-header></app-header>\n    </div>\n  </div>\n\n  <div id=\"page-content-wrapper\" class=\"container-fluid\">\n\n    <router-outlet></router-outlet>\n\n  </div>\n</div>"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/header/header.component.html":
-/*!************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/header/header.component.html ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"text-center\">\r\n    <div class=\"text-muted h5\">Vous êtes:</div>\r\n    <div class=\"text-muted\">Page 1</div>\r\n    <div class=\"text-muted\"> Chapitre \"Belle Plante\"</div>\r\n</div>"
+module.exports = "<div class=\"d-flex\" id=\"wrapper\">\n\n  <div id=\"sidebar-wrapper\" [ngClass]=\"sidebarService.isToggled ? 'toggled' : 'bg-light border-right'\">\n    <div class=\"list-group list-group-flush\">\n      <app-sidebar></app-sidebar>\n    </div>\n  </div>\n\n  <div id=\"page-content-wrapper\" class=\"container-fluid\">\n\n    <router-outlet></router-outlet>\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -89,6 +78,17 @@ module.exports = "<p>see-comments works!</p>\n"
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/sidebar/sidebar.component.html":
+/*!**************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/sidebar/sidebar.component.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"text-center\">\r\n    <div class=\"text-muted h5\">Vous êtes:</div>\r\n    <div class=\"text-muted\">Page {{slideshowService.page}}</div>\r\n    <div class=\"text-muted\"> Chapitre \"{{slideshowService.chapterTitle}}\"</div>\r\n</div>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/slide-show/slide-show.component.html":
 /*!********************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/slide-show/slide-show.component.html ***!
@@ -96,7 +96,7 @@ module.exports = "<p>see-comments works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col-1 \">\n        <div class=\"d-none d-sm-block\">\n            <button class=\"btn p-0\" id=\"menu-toggle\" (click)=\"toggleSideBar()\"><span class=\"fas fa-bars\"\n                    aria-hidden=\"true\"></span></button>\n        </div>\n    </div>\n    <div class=\"col\">\n        <div class=\"d-flex justify-content-center align-items-center\">\n\n            <div>\n                <a class=\"nav-link\" routerLink=\"/page/1\"> <i class=\"p-2 fa fa-chevron-left\" aria-hidden=\"true\"></i></a>\n            </div>\n            <div class=\"p-2 vh-100\">\n                <img src=\"assets/img/image.jpg\" class=\"img-fluid\" alt=\"Responsive image\">\n            </div>\n            <div>\n                <a class=\"nav-link\" routerLink=\"/page/1\"> <i class=\"p-2 fa fa-chevron-right\" aria-hidden=\"true\"></i></a>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>"
+module.exports = "<div class=\"row\">\n    <div class=\"col-1 \">\n        <div class=\"d-none d-sm-block\">\n            <button class=\"btn p-0\" id=\"menu-toggle\" (click)=\"toggleSideBar()\"><span class=\"fas fa-bars\"\n                    aria-hidden=\"true\"></span></button>\n        </div>\n    </div>\n    <div class=\"col\">\n        <div class=\"d-flex justify-content-center align-items-center\">\n\n            <div *ngIf=\"slideshowService.page>1\">\n                <a class=\"nav-link\" (click)=\"previousPage()\"> <i class=\"p-2 fa fa-chevron-left\" aria-hidden=\"true\"></i></a>\n            </div>\n            <div class=\"p-2 vh-100\">\n                <img [src]=\"slideshowService.imageUrl | async\" class=\"img-fluid\">\n            </div>\n            <div >\n                <a class=\"nav-link\" (click)=\"nextPage()\" *ngIf=\"(slideshowService.nextImageUrl | async)\"> <i class=\"p-2 fa fa-chevron-right\" aria-hidden=\"true\"></i></a>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>"
 
 /***/ }),
 
@@ -309,9 +309,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _about_project_about_project_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./about-project/about-project.component */ "./src/app/about-project/about-project.component.ts");
 /* harmony import */ var _see_comments_see_comments_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./see-comments/see-comments.component */ "./src/app/see-comments/see-comments.component.ts");
 /* harmony import */ var _publish_comment_publish_comment_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./publish-comment/publish-comment.component */ "./src/app/publish-comment/publish-comment.component.ts");
-/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
-/* harmony import */ var _slide_show_slide_show_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./slide-show/slide-show.component */ "./src/app/slide-show/slide-show.component.ts");
-/* harmony import */ var _sidebar_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./sidebar.service */ "./src/app/sidebar.service.ts");
+/* harmony import */ var _slide_show_slide_show_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./slide-show/slide-show.component */ "./src/app/slide-show/slide-show.component.ts");
+/* harmony import */ var _sidebar_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./sidebar.service */ "./src/app/sidebar.service.ts");
+/* harmony import */ var _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./sidebar/sidebar.component */ "./src/app/sidebar/sidebar.component.ts");
+/* harmony import */ var _slideshow_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./slideshow.service */ "./src/app/slideshow.service.ts");
+/* harmony import */ var angularfire2__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! angularfire2 */ "./node_modules/angularfire2/index.js");
+/* harmony import */ var angularfire2__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(angularfire2__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! angularfire2/storage */ "./node_modules/angularfire2/storage/index.js");
+/* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(angularfire2_storage__WEBPACK_IMPORTED_MODULE_14__);
+
+
+
 
 
 
@@ -335,63 +343,25 @@ var AppModule = /** @class */ (function () {
                 _about_project_about_project_component__WEBPACK_IMPORTED_MODULE_6__["AboutProjectComponent"],
                 _see_comments_see_comments_component__WEBPACK_IMPORTED_MODULE_7__["SeeCommentsComponent"],
                 _publish_comment_publish_comment_component__WEBPACK_IMPORTED_MODULE_8__["PublishCommentComponent"],
-                _header_header_component__WEBPACK_IMPORTED_MODULE_9__["HeaderComponent"],
-                _slide_show_slide_show_component__WEBPACK_IMPORTED_MODULE_10__["SlideShowComponent"]
+                _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_11__["SidebarComponent"],
+                _slide_show_slide_show_component__WEBPACK_IMPORTED_MODULE_9__["SlideShowComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"]
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
+                angularfire2__WEBPACK_IMPORTED_MODULE_13__["AngularFireModule"].initializeApp({
+                    apiKey: "AIzaSyAzCYjsZeHK_uKbiNKAvxGWWOiziw1xQsc",
+                    authDomain: "<your-auth-domain>",
+                    storageBucket: "lecteurplanches.appspot.com",
+                    projectId: "lecteurplanches",
+                }),
+                angularfire2_storage__WEBPACK_IMPORTED_MODULE_14__["AngularFireStorageModule"]
             ],
-            providers: [_sidebar_service__WEBPACK_IMPORTED_MODULE_11__["SidebarService"]],
+            providers: [_sidebar_service__WEBPACK_IMPORTED_MODULE_10__["SidebarService"], _slideshow_service__WEBPACK_IMPORTED_MODULE_12__["SlideshowService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/header/header.component.css":
-/*!*********************************************!*\
-  !*** ./src/app/header/header.component.css ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LmNzcyJ9 */"
-
-/***/ }),
-
-/***/ "./src/app/header/header.component.ts":
-/*!********************************************!*\
-  !*** ./src/app/header/header.component.ts ***!
-  \********************************************/
-/*! exports provided: HeaderComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent() {
-    }
-    HeaderComponent.prototype.ngOnInit = function () {
-    };
-    HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-header',
-            template: __webpack_require__(/*! raw-loader!./header.component.html */ "./node_modules/raw-loader/index.js!./src/app/header/header.component.html"),
-            styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/header/header.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], HeaderComponent);
-    return HeaderComponent;
 }());
 
 
@@ -524,6 +494,57 @@ var SidebarService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/sidebar/sidebar.component.css":
+/*!***********************************************!*\
+  !*** ./src/app/sidebar/sidebar.component.css ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NpZGViYXIvc2lkZWJhci5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/sidebar/sidebar.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/sidebar/sidebar.component.ts ***!
+  \**********************************************/
+/*! exports provided: SidebarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidebarComponent", function() { return SidebarComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _slideshow_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../slideshow.service */ "./src/app/slideshow.service.ts");
+
+
+
+var SidebarComponent = /** @class */ (function () {
+    function SidebarComponent(slideshowService) {
+        this.slideshowService = slideshowService;
+    }
+    SidebarComponent.prototype.ngOnInit = function () {
+    };
+    SidebarComponent.ctorParameters = function () { return [
+        { type: _slideshow_service__WEBPACK_IMPORTED_MODULE_2__["SlideshowService"] }
+    ]; };
+    SidebarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-sidebar',
+            template: __webpack_require__(/*! raw-loader!./sidebar.component.html */ "./node_modules/raw-loader/index.js!./src/app/sidebar/sidebar.component.html"),
+            styles: [__webpack_require__(/*! ./sidebar.component.css */ "./src/app/sidebar/sidebar.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_slideshow_service__WEBPACK_IMPORTED_MODULE_2__["SlideshowService"]])
+    ], SidebarComponent);
+    return SidebarComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/slide-show/slide-show.component.css":
 /*!*****************************************************!*\
   !*** ./src/app/slide-show/slide-show.component.css ***!
@@ -548,20 +569,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _sidebar_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sidebar.service */ "./src/app/sidebar.service.ts");
+/* harmony import */ var _slideshow_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../slideshow.service */ "./src/app/slideshow.service.ts");
+
 
 
 
 var SlideShowComponent = /** @class */ (function () {
-    function SlideShowComponent(sidebarService) {
+    function SlideShowComponent(sidebarService, slideshowService) {
         this.sidebarService = sidebarService;
+        this.slideshowService = slideshowService;
     }
     SlideShowComponent.prototype.ngOnInit = function () {
     };
     SlideShowComponent.prototype.toggleSideBar = function () {
         this.sidebarService.toggleSidebar();
     };
+    SlideShowComponent.prototype.nextPage = function () {
+        this.slideshowService.nextPage();
+    };
+    SlideShowComponent.prototype.previousPage = function () {
+        this.slideshowService.previousPage();
+    };
     SlideShowComponent.ctorParameters = function () { return [
-        { type: _sidebar_service__WEBPACK_IMPORTED_MODULE_2__["SidebarService"] }
+        { type: _sidebar_service__WEBPACK_IMPORTED_MODULE_2__["SidebarService"] },
+        { type: _slideshow_service__WEBPACK_IMPORTED_MODULE_3__["SlideshowService"] }
     ]; };
     SlideShowComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -569,9 +600,69 @@ var SlideShowComponent = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./slide-show.component.html */ "./node_modules/raw-loader/index.js!./src/app/slide-show/slide-show.component.html"),
             styles: [__webpack_require__(/*! ./slide-show.component.css */ "./src/app/slide-show/slide-show.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_sidebar_service__WEBPACK_IMPORTED_MODULE_2__["SidebarService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_sidebar_service__WEBPACK_IMPORTED_MODULE_2__["SidebarService"], _slideshow_service__WEBPACK_IMPORTED_MODULE_3__["SlideshowService"]])
     ], SlideShowComponent);
     return SlideShowComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/slideshow.service.ts":
+/*!**************************************!*\
+  !*** ./src/app/slideshow.service.ts ***!
+  \**************************************/
+/*! exports provided: SlideshowService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SlideshowService", function() { return SlideshowService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/storage */ "./node_modules/angularfire2/storage/index.js");
+/* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var SlideshowService = /** @class */ (function () {
+    function SlideshowService(afStorage) {
+        this.afStorage = afStorage;
+        this.isLastPage = false;
+        this.page = 1;
+        this.chapter = 1;
+        this.setImageUrl();
+        this.setNextImageUrl();
+    }
+    SlideshowService.prototype.nextPage = function () {
+        this.page = this.page + 1;
+        this.imageUrl = this.nextImageUrl;
+        this.setNextImageUrl();
+    };
+    SlideshowService.prototype.previousPage = function () {
+        this.page = this.page - 1;
+        this.nextImageUrl = this.imageUrl;
+        this.setImageUrl();
+    };
+    SlideshowService.prototype.setImageUrl = function () {
+        var ref = this.afStorage.ref(this.page + '.jpg');
+        this.imageUrl = ref.getDownloadURL();
+    };
+    SlideshowService.prototype.setNextImageUrl = function () {
+        var ref2 = this.afStorage.ref((this.page + 1) + '.jpg');
+        this.nextImageUrl = ref2.getDownloadURL();
+    };
+    SlideshowService.ctorParameters = function () { return [
+        { type: angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"] }
+    ]; };
+    SlideshowService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"]])
+    ], SlideshowService);
+    return SlideshowService;
 }());
 
 
