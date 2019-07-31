@@ -85,7 +85,7 @@ module.exports = "<p>see-comments works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"text-center\">\r\n    <div class=\"text-muted h5\">Vous êtes:</div>\r\n    <div class=\"text-muted\">Page {{slideshowService.page}}</div>\r\n    <div class=\"text-muted\"> Chapitre \"{{slideshowService.chapterTitle}}\"</div>\r\n</div>"
+module.exports = "<div class=\"text-center\">\r\n    <div class=\"text-muted h5\">Vous êtes:</div>\r\n    <div class=\"text-muted\">Page {{slideshowService.currentPage}}</div>\r\n    <div class=\"text-muted\"> Chapitre \"{{slideshowService.currentChapterTitle}}\" </div>\r\n</div>"
 
 /***/ }),
 
@@ -96,7 +96,7 @@ module.exports = "<div class=\"text-center\">\r\n    <div class=\"text-muted h5\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col-1 \">\n        <div class=\"d-none d-sm-block\">\n            <button class=\"btn p-0\" id=\"menu-toggle\" (click)=\"toggleSideBar()\"><span class=\"fas fa-bars\"\n                    aria-hidden=\"true\"></span></button>\n        </div>\n    </div>\n    <div class=\"col\">\n        <div class=\"d-flex justify-content-center align-items-center\">\n\n            <div *ngIf=\"slideshowService.page>1\">\n                <a class=\"nav-link\" (click)=\"previousPage()\"> <i class=\"p-2 fa fa-chevron-left\" aria-hidden=\"true\"></i></a>\n            </div>\n            <div class=\"p-2 vh-100\">\n                <img [src]=\"slideshowService.imageUrl | async\" class=\"img-fluid\">\n            </div>\n            <div >\n                <a class=\"nav-link\" (click)=\"nextPage()\" *ngIf=\"(slideshowService.nextImageUrl | async)\"> <i class=\"p-2 fa fa-chevron-right\" aria-hidden=\"true\"></i></a>\n            </div>\n\n        </div>\n\n    </div>\n\n</div>"
+module.exports = "<div class=\"row\">\n    <div class=\"col-1 \">\n        <div class=\"d-none d-sm-block\">\n            <button class=\"btn p-0\" id=\"menu-toggle\" (click)=\"toggleSideBar()\"><span class=\"fas fa-bars\"\n                    aria-hidden=\"true\"></span></button>\n        </div>\n    </div>\n    <div class=\"col\">\n        <div class=\"d-flex justify-content-center align-items-center\">\n\n            <div *ngIf=\"slideshowService.currentPage>1\">\n                <a class=\"nav-link\" (click)=\"previousPage()\"> <i class=\"p-2 fa fa-chevron-left\" aria-hidden=\"true\"></i></a>\n            </div>\n            <div class=\"p-2 vh-100\">\n                <img [src]=\"slideshowService.imageUrl | async\" class=\"img-fluid\">\n            </div>\n            <div *ngIf=\"slideshowService.isLastPage(); then thenBlock else elseBlock\"></div>\n<ng-template #thenBlock><div class=\"text-muted h5\">To be continued (soon)...</div></ng-template>\n<ng-template #elseBlock> <a class=\"nav-link\" (click)=\"nextPage()\"> <i class=\"p-2 fa fa-chevron-right\" aria-hidden=\"true\"></i></a></ng-template>\n            \n\n        </div>\n\n    </div>\n\n</div>"
 
 /***/ }),
 
@@ -219,7 +219,6 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     { path: '', component: _slide_show_slide_show_component__WEBPACK_IMPORTED_MODULE_4__["SlideShowComponent"] },
     { path: 'home', component: _slide_show_slide_show_component__WEBPACK_IMPORTED_MODULE_4__["SlideShowComponent"] },
-    { path: 'page/1', component: _slide_show_slide_show_component__WEBPACK_IMPORTED_MODULE_4__["SlideShowComponent"] },
     { path: 'aboutProject', component: _about_project_about_project_component__WEBPACK_IMPORTED_MODULE_3__["AboutProjectComponent"] },
     { path: 'aboutAuthor', component: _about_author_about_author_component__WEBPACK_IMPORTED_MODULE_5__["AboutAuthorComponent"] },
     { path: 'seeComments', component: _see_comments_see_comments_component__WEBPACK_IMPORTED_MODULE_6__["SeeCommentsComponent"] },
@@ -317,6 +316,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angularfire2__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(angularfire2__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! angularfire2/storage */ "./node_modules/angularfire2/storage/index.js");
 /* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(angularfire2_storage__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_15__);
+
 
 
 
@@ -351,11 +353,12 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
                 angularfire2__WEBPACK_IMPORTED_MODULE_13__["AngularFireModule"].initializeApp({
                     apiKey: "AIzaSyAzCYjsZeHK_uKbiNKAvxGWWOiziw1xQsc",
-                    authDomain: "<your-auth-domain>",
+                    databaseURL: "lecteurplanches.firebaseio.com",
                     storageBucket: "lecteurplanches.appspot.com",
                     projectId: "lecteurplanches",
                 }),
-                angularfire2_storage__WEBPACK_IMPORTED_MODULE_14__["AngularFireStorageModule"]
+                angularfire2_storage__WEBPACK_IMPORTED_MODULE_14__["AngularFireStorageModule"],
+                angularfire2_database__WEBPACK_IMPORTED_MODULE_15__["AngularFireDatabaseModule"]
             ],
             providers: [_sidebar_service__WEBPACK_IMPORTED_MODULE_10__["SidebarService"], _slideshow_service__WEBPACK_IMPORTED_MODULE_12__["SlideshowService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
@@ -623,44 +626,104 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/storage */ "./node_modules/angularfire2/storage/index.js");
 /* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
 var SlideshowService = /** @class */ (function () {
-    function SlideshowService(afStorage) {
+    function SlideshowService(afStorage, afDatabase) {
         this.afStorage = afStorage;
-        this.isLastPage = false;
-        this.page = 1;
-        this.chapter = 1;
+        this.afDatabase = afDatabase;
+        this.currentPage = 1;
+        this.currentChapter = 1;
+        this.pageMax = 0;
         this.setImageUrl();
-        this.setNextImageUrl();
+        this.retrieveData();
     }
+    SlideshowService.prototype.retrieveData = function () {
+        var _this = this;
+        this.afDatabase.list('/chapters').valueChanges() // returns observable
+            .subscribe(function (list) {
+            _this.chaptersList = list;
+            _this.computePageMax();
+            _this.setChapterTitle();
+        });
+    };
+    SlideshowService.prototype.computePageMax = function () {
+        var e_1, _a;
+        try {
+            for (var _b = tslib__WEBPACK_IMPORTED_MODULE_0__["__values"](this.chaptersList), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var chapter = _c.value;
+                if (chapter.pageMax > this.pageMax) {
+                    this.pageMax = chapter.pageMax;
+                }
+            }
+        }
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
+    };
+    SlideshowService.prototype.setChapterTitle = function () {
+        var e_2, _a;
+        if (this.chaptersList) {
+            try {
+                for (var _b = tslib__WEBPACK_IMPORTED_MODULE_0__["__values"](this.chaptersList), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var chapter = _c.value;
+                    if (chapter.pageMin <= this.currentPage && this.currentPage <= chapter.pageMax) {
+                        this.currentChapterTitle = chapter.title;
+                        this.pageMinChapter = chapter.pageMin;
+                        this.pageMaxChapter = chapter.pageMax;
+                    }
+                }
+            }
+            catch (e_2_1) { e_2 = { error: e_2_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_2) throw e_2.error; }
+            }
+        }
+    };
     SlideshowService.prototype.nextPage = function () {
-        this.page = this.page + 1;
-        this.imageUrl = this.nextImageUrl;
-        this.setNextImageUrl();
+        this.currentPage = this.currentPage + 1;
+        this.computePage();
     };
     SlideshowService.prototype.previousPage = function () {
-        this.page = this.page - 1;
-        this.nextImageUrl = this.imageUrl;
+        this.currentPage = this.currentPage - 1;
+        this.computePage();
+    };
+    SlideshowService.prototype.computePage = function () {
+        this.checkChapter();
         this.setImageUrl();
     };
+    SlideshowService.prototype.checkChapter = function () {
+        if ((this.currentPage > this.pageMaxChapter) || (this.currentPage < this.pageMinChapter)) {
+            this.setChapterTitle();
+        }
+    };
+    SlideshowService.prototype.isLastPage = function () {
+        return this.currentPage == this.pageMax;
+    };
     SlideshowService.prototype.setImageUrl = function () {
-        var ref = this.afStorage.ref(this.page + '.jpg');
+        var ref = this.afStorage.ref(this.currentPage + '.jpg');
         this.imageUrl = ref.getDownloadURL();
     };
-    SlideshowService.prototype.setNextImageUrl = function () {
-        var ref2 = this.afStorage.ref((this.page + 1) + '.jpg');
-        this.nextImageUrl = ref2.getDownloadURL();
-    };
     SlideshowService.ctorParameters = function () { return [
-        { type: angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"] }
+        { type: angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"] },
+        { type: angularfire2_database__WEBPACK_IMPORTED_MODULE_3__["AngularFireDatabase"] }
     ]; };
     SlideshowService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"], angularfire2_database__WEBPACK_IMPORTED_MODULE_3__["AngularFireDatabase"]])
     ], SlideshowService);
     return SlideshowService;
 }());
