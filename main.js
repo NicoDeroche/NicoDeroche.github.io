@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>about-author works!</p>\n\n\n"
+module.exports = "<p></p>\n<h3>A propos de l'auteur</h3>\n\n<p>{{databaseService.getAboutAuthor()}}</p>\n\n\n"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = "<p>about-author works!</p>\n\n\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>about-project works!</p>\n"
+module.exports = "<p></p>\n<h3>A propos du projet \"Le Joyau d'Edsheran\"</h3>\n\n<p>{{databaseService.getAboutProject()}}</p>\n\n\n"
 
 /***/ }),
 
@@ -52,7 +52,7 @@ module.exports = "<p>about-project works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex\" id=\"wrapper\">\n\n  <div id=\"sidebar-wrapper\" [ngClass]=\"sidebarService.isToggled ? 'toggled' : 'bg-light border-right'\">\n    <div class=\"list-group list-group-flush\">\n      <app-sidebar></app-sidebar>\n    </div>\n  </div>\n\n  <div id=\"page-content-wrapper\" class=\"container-fluid\">\n\n    <router-outlet></router-outlet>\n\n  </div>\n</div>"
+module.exports = "<div class=\"d-flex\" id=\"wrapper\">\n\n  <div id=\"sidebar-wrapper\" [ngClass]=\"sidebarService.isToggled ? 'toggled' : 'bg-light border-right'\">\n    <div class=\"list-group list-group-flush\">\n      <app-sidebar></app-sidebar>\n    </div>\n  </div>\n\n  <div id=\"page-content-wrapper\" class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-1 \">\n        <div class=\"d-none d-sm-block\">\n          <button class=\"btn p-0\" id=\"menu-toggle\" (click)=\"toggleSideBar()\"><span class=\"fas fa-bars\"\n              aria-hidden=\"true\"></span></button>\n        </div>\n      </div>\n      <div class=\"col\">\n        <router-outlet></router-outlet>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -85,7 +85,7 @@ module.exports = "<p>see-comments works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"text-center\">\r\n    <div class=\"text-muted h5\">Vous êtes:</div>\r\n    <div class=\"text-muted\">Page {{slideshowService.currentPage}}</div>\r\n    <div class=\"text-muted\"> Chapitre \"{{slideshowService.currentChapterTitle}}\" </div>\r\n</div>"
+module.exports = "<div class=\"text-center\">\r\n    <div class=\"text-muted h5\">Vous êtes:</div>\r\n    <div class=\"text-muted\">Page {{slideshowService.currentPage}}</div>\r\n    <div class=\"text-muted\"> Chapitre \"{{slideshowService.currentChapterTitle}}\" </div>\r\n    <nav class=\"navbar\">\r\n        <div class=\"\" id=\"navbarSupportedContent\">\r\n          <ul class=\"navbar-nav mr-auto  mx-auto text-left\" >\r\n            <li class=\"nav-item   p-2\" >\r\n              <a class=\"nav-link text-muted\" routerLink=\"home\" routerLinkActive=\"active-link\">Accueil</a>\r\n            </li>\r\n           \r\n            <li class=\"nav-item dropdown  p-2\" >\r\n              <a class=\"nav-link dropdown-toggle text-muted\" routerLinkActive=\"active-link\"  id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\" routerLink=\"about\" aria-expanded=\"false\">\r\n                A propos\r\n              </a>\r\n              <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\" >\r\n                <a class=\"dropdown-item\"  routerLink=\"about/aboutProject\" routerLinkActive=\"active-link\" >A propos du projet</a>\r\n                <a class=\"dropdown-item\"  routerLink=\"about/aboutAuthor\" routerLinkActive=\"active-link\">A propos de l'auteur</a>\r\n              </div>\r\n            </li>\r\n          \r\n          \r\n            <!--\r\n            <li class=\"nav-item dropdown  p-2\" routerLinkActive=\"active\">\r\n              <a class=\"nav-link dropdown-toggle\" id=\"navbarDropdown2\" role=\"button\" data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                Chapitre\r\n              </a>\r\n              <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown2\">\r\n                <a class=\"dropdown-item\" href=\"#\">L'Ascenseur</a>\r\n                <a class=\"dropdown-item\" href=\"#\">Belle Plante</a>\r\n              </div>\r\n            </li>\r\n      \r\n            <li class=\"nav-item  p-2\">\r\n              <form class=\"form-inline\">\r\n                <div class=\"input-group\">\r\n      \r\n                  <input type=\"text\" class=\"form-control col-xs-2\" aria-label=\"numPage\" placeholder=\"aller à la page\"\r\n                    aria-describedby=\"basic-addon1\">\r\n                </div>\r\n              </form>\r\n            </li>\r\n            <span class=\"d-none d-lg-block\">\r\n              <li class=\"nav-item  p-2\">\r\n                <form class=\"form-inline\">\r\n                  <div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">\r\n                    <label class=\"btn btn-secondary active\">\r\n                      <input type=\"radio\" name=\"options\" id=\"option1\" autocomplete=\"off\" checked> 1 page\r\n                    </label>\r\n                    <label class=\"btn btn-secondary\">\r\n                      <input type=\"radio\" name=\"options\" id=\"option2\" autocomplete=\"off\"> 2 pages\r\n                    </label>\r\n                  </div>\r\n                </form>\r\n              </li>\r\n            </span>\r\n            <li class=\"nav-item dropdown  p-2\" routerLinkActive=\"active\">\r\n              <a class=\"nav-link dropdown-toggle\" id=\"navbarDropdown2\" role=\"button\" data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                Livre d'or\r\n              </a>\r\n              <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown2\">\r\n                <a class=\"dropdown-item\" routerLink=\"seeComments\">Consulter</a>\r\n                <a class=\"dropdown-item\" routerLink=\"publishComment\">Commenter</a>\r\n              </div>\r\n            </li>\r\n            -->\r\n          </ul>\r\n        </div>\r\n      </nav>\r\n</div>"
 
 /***/ }),
 
@@ -96,7 +96,7 @@ module.exports = "<div class=\"text-center\">\r\n    <div class=\"text-muted h5\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <div class=\"col-1 \">\n        <div class=\"d-none d-sm-block\">\n            <button class=\"btn p-0\" id=\"menu-toggle\" (click)=\"toggleSideBar()\"><span class=\"fas fa-bars\"\n                    aria-hidden=\"true\"></span></button>\n        </div>\n    </div>\n    <div class=\"col\">\n        <div class=\"d-flex justify-content-center align-items-center\">\n\n            <div *ngIf=\"slideshowService.currentPage>1\">\n                <a class=\"nav-link\" (click)=\"previousPage()\"> <i class=\"p-2 fa fa-chevron-left\" aria-hidden=\"true\"></i></a>\n            </div>\n            <div class=\"p-2 vh-100\">\n                <img [src]=\"slideshowService.imageUrl | async\" class=\"img-fluid\">\n            </div>\n            <div *ngIf=\"slideshowService.isLastPage(); then thenBlock else elseBlock\"></div>\n<ng-template #thenBlock><div class=\"text-muted h5\">To be continued (soon)...</div></ng-template>\n<ng-template #elseBlock> <a class=\"nav-link\" (click)=\"nextPage()\"> <i class=\"p-2 fa fa-chevron-right\" aria-hidden=\"true\"></i></a></ng-template>\n            \n\n        </div>\n\n    </div>\n\n</div>"
+module.exports = "<div class=\"d-flex justify-content-center align-items-center\">\n\n    <div *ngIf=\"slideshowService.currentPage>1\">\n        <a class=\"nav-link\" (click)=\"previousPage()\"> <i class=\"p-2 fa fa-chevron-left\" aria-hidden=\"true\"></i></a>\n    </div>\n    <div class=\"p-2 vh-100\">\n        <img [src]=\"slideshowService.imageUrl | async\" class=\"img-fluid\">\n    </div>\n    <div *ngIf=\"slideshowService.isLastPage(); then thenBlock else elseBlock\"></div>\n    <ng-template #thenBlock>\n        <div class=\"text-muted h5\">To be continued (soon)...</div>\n    </ng-template>\n    <ng-template #elseBlock> <a class=\"nav-link\" (click)=\"nextPage()\"> <i class=\"p-2 fa fa-chevron-right\"\n                aria-hidden=\"true\"></i></a></ng-template>\n\n\n</div>"
 
 /***/ }),
 
@@ -123,20 +123,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutAuthorComponent", function() { return AboutAuthorComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _database_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../database.service */ "./src/app/database.service.ts");
+
 
 
 var AboutAuthorComponent = /** @class */ (function () {
-    function AboutAuthorComponent() {
+    function AboutAuthorComponent(databaseService) {
+        this.databaseService = databaseService;
     }
     AboutAuthorComponent.prototype.ngOnInit = function () {
     };
+    AboutAuthorComponent.ctorParameters = function () { return [
+        { type: _database_service__WEBPACK_IMPORTED_MODULE_2__["DatabaseService"] }
+    ]; };
     AboutAuthorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-about-author',
             template: __webpack_require__(/*! raw-loader!./about-author.component.html */ "./node_modules/raw-loader/index.js!./src/app/about-author/about-author.component.html"),
             styles: [__webpack_require__(/*! ./about-author.component.css */ "./src/app/about-author/about-author.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_database_service__WEBPACK_IMPORTED_MODULE_2__["DatabaseService"]])
     ], AboutAuthorComponent);
     return AboutAuthorComponent;
 }());
@@ -168,20 +174,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutProjectComponent", function() { return AboutProjectComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _database_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../database.service */ "./src/app/database.service.ts");
+
 
 
 var AboutProjectComponent = /** @class */ (function () {
-    function AboutProjectComponent() {
+    function AboutProjectComponent(databaseService) {
+        this.databaseService = databaseService;
     }
     AboutProjectComponent.prototype.ngOnInit = function () {
     };
+    AboutProjectComponent.ctorParameters = function () { return [
+        { type: _database_service__WEBPACK_IMPORTED_MODULE_2__["DatabaseService"] }
+    ]; };
     AboutProjectComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-about-project',
             template: __webpack_require__(/*! raw-loader!./about-project.component.html */ "./node_modules/raw-loader/index.js!./src/app/about-project/about-project.component.html"),
             styles: [__webpack_require__(/*! ./about-project.component.css */ "./src/app/about-project/about-project.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_database_service__WEBPACK_IMPORTED_MODULE_2__["DatabaseService"]])
     ], AboutProjectComponent);
     return AboutProjectComponent;
 }());
@@ -219,8 +231,8 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     { path: '', component: _slide_show_slide_show_component__WEBPACK_IMPORTED_MODULE_4__["SlideShowComponent"] },
     { path: 'home', component: _slide_show_slide_show_component__WEBPACK_IMPORTED_MODULE_4__["SlideShowComponent"] },
-    { path: 'aboutProject', component: _about_project_about_project_component__WEBPACK_IMPORTED_MODULE_3__["AboutProjectComponent"] },
-    { path: 'aboutAuthor', component: _about_author_about_author_component__WEBPACK_IMPORTED_MODULE_5__["AboutAuthorComponent"] },
+    { path: 'about/aboutProject', component: _about_project_about_project_component__WEBPACK_IMPORTED_MODULE_3__["AboutProjectComponent"] },
+    { path: 'about/aboutAuthor', component: _about_author_about_author_component__WEBPACK_IMPORTED_MODULE_5__["AboutAuthorComponent"] },
     { path: 'seeComments', component: _see_comments_see_comments_component__WEBPACK_IMPORTED_MODULE_6__["SeeCommentsComponent"] },
     { path: 'publishComment', component: _publish_comment_publish_comment_component__WEBPACK_IMPORTED_MODULE_7__["PublishCommentComponent"] }
 ];
@@ -247,7 +259,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "body {\r\n  overflow-x: hidden;\r\n}\r\n\r\n#sidebar-wrapper {\r\n  min-height: 100vh;\r\n  margin-left: -15rem;\r\n  transition: margin .25s ease-out;\r\n}\r\n\r\n#sidebar-wrapper .list-group {\r\n  width: 15rem;\r\n}\r\n\r\n#sidebar-wrapper {\r\n    margin-left: 0;\r\n  }\r\n\r\n#page-content-wrapper {\r\n    min-width: 0;\r\n    width: 100%;\r\n  }\r\n\r\n#sidebar-wrapper.toggled {\r\n    margin-left: -15rem;\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsbUJBQW1CO0VBSW5CLGdDQUFnQztBQUNsQzs7QUFHQTtFQUNFLFlBQVk7QUFDZDs7QUFHRTtJQUNFLGNBQWM7RUFDaEI7O0FBRUE7SUFDRSxZQUFZO0lBQ1osV0FBVztFQUNiOztBQUVEO0lBQ0csbUJBQW1CO0VBQ3JCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcclxuICBvdmVyZmxvdy14OiBoaWRkZW47XHJcbn1cclxuXHJcbiNzaWRlYmFyLXdyYXBwZXIge1xyXG4gIG1pbi1oZWlnaHQ6IDEwMHZoO1xyXG4gIG1hcmdpbi1sZWZ0OiAtMTVyZW07XHJcbiAgLXdlYmtpdC10cmFuc2l0aW9uOiBtYXJnaW4gLjI1cyBlYXNlLW91dDtcclxuICAtbW96LXRyYW5zaXRpb246IG1hcmdpbiAuMjVzIGVhc2Utb3V0O1xyXG4gIC1vLXRyYW5zaXRpb246IG1hcmdpbiAuMjVzIGVhc2Utb3V0O1xyXG4gIHRyYW5zaXRpb246IG1hcmdpbiAuMjVzIGVhc2Utb3V0O1xyXG59XHJcblxyXG5cclxuI3NpZGViYXItd3JhcHBlciAubGlzdC1ncm91cCB7XHJcbiAgd2lkdGg6IDE1cmVtO1xyXG59XHJcblxyXG5cclxuICAjc2lkZWJhci13cmFwcGVyIHtcclxuICAgIG1hcmdpbi1sZWZ0OiAwO1xyXG4gIH1cclxuXHJcbiAgI3BhZ2UtY29udGVudC13cmFwcGVyIHtcclxuICAgIG1pbi13aWR0aDogMDtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gIH1cclxuXHJcbiAjc2lkZWJhci13cmFwcGVyLnRvZ2dsZWQge1xyXG4gICAgbWFyZ2luLWxlZnQ6IC0xNXJlbTtcclxuICB9XHJcbiJdfQ== */"
+module.exports = "body {\r\n  overflow-x: hidden;\r\n\r\n\r\n}\r\n\r\n\r\n\r\n#sidebar-wrapper {\r\n  min-height: 100vh;\r\n  margin-left: -15rem;\r\n  transition: margin .25s ease-out;\r\n}\r\n\r\n\r\n\r\n#sidebar-wrapper .list-group {\r\n  width: 15rem;\r\n}\r\n\r\n\r\n\r\n#sidebar-wrapper {\r\n    margin-left: 0;\r\n  }\r\n\r\n\r\n\r\n#page-content-wrapper {\r\n    min-width: 0;\r\n    width: 100%;\r\n  }\r\n\r\n\r\n\r\n#sidebar-wrapper.toggled {\r\n    margin-left: -15rem;\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7OztBQUdwQjs7OztBQUlBO0VBQ0UsaUJBQWlCO0VBQ2pCLG1CQUFtQjtFQUluQixnQ0FBZ0M7QUFDbEM7Ozs7QUFHQTtFQUNFLFlBQVk7QUFDZDs7OztBQUdFO0lBQ0UsY0FBYztFQUNoQjs7OztBQUVBO0lBQ0UsWUFBWTtJQUNaLFdBQVc7RUFDYjs7OztBQUVEO0lBQ0csbUJBQW1CO0VBQ3JCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcclxuICBvdmVyZmxvdy14OiBoaWRkZW47XHJcblxyXG5cclxufVxyXG5cclxuXHJcblxyXG4jc2lkZWJhci13cmFwcGVyIHtcclxuICBtaW4taGVpZ2h0OiAxMDB2aDtcclxuICBtYXJnaW4tbGVmdDogLTE1cmVtO1xyXG4gIC13ZWJraXQtdHJhbnNpdGlvbjogbWFyZ2luIC4yNXMgZWFzZS1vdXQ7XHJcbiAgLW1vei10cmFuc2l0aW9uOiBtYXJnaW4gLjI1cyBlYXNlLW91dDtcclxuICAtby10cmFuc2l0aW9uOiBtYXJnaW4gLjI1cyBlYXNlLW91dDtcclxuICB0cmFuc2l0aW9uOiBtYXJnaW4gLjI1cyBlYXNlLW91dDtcclxufVxyXG5cclxuXHJcbiNzaWRlYmFyLXdyYXBwZXIgLmxpc3QtZ3JvdXAge1xyXG4gIHdpZHRoOiAxNXJlbTtcclxufVxyXG5cclxuXHJcbiAgI3NpZGViYXItd3JhcHBlciB7XHJcbiAgICBtYXJnaW4tbGVmdDogMDtcclxuICB9XHJcblxyXG4gICNwYWdlLWNvbnRlbnQtd3JhcHBlciB7XHJcbiAgICBtaW4td2lkdGg6IDA7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICB9XHJcblxyXG4gI3NpZGViYXItd3JhcHBlci50b2dnbGVkIHtcclxuICAgIG1hcmdpbi1sZWZ0OiAtMTVyZW07XHJcbiAgfVxyXG4iXX0= */"
 
 /***/ }),
 
@@ -271,6 +283,9 @@ var AppComponent = /** @class */ (function () {
     function AppComponent(sidebarService) {
         this.sidebarService = sidebarService;
     }
+    AppComponent.prototype.toggleSideBar = function () {
+        this.sidebarService.toggleSidebar();
+    };
     AppComponent.ctorParameters = function () { return [
         { type: _sidebar_service__WEBPACK_IMPORTED_MODULE_2__["SidebarService"] }
     ]; };
@@ -318,6 +333,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(angularfire2_storage__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
 /* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _database_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./database.service */ "./src/app/database.service.ts");
+
 
 
 
@@ -360,11 +377,49 @@ var AppModule = /** @class */ (function () {
                 angularfire2_storage__WEBPACK_IMPORTED_MODULE_14__["AngularFireStorageModule"],
                 angularfire2_database__WEBPACK_IMPORTED_MODULE_15__["AngularFireDatabaseModule"]
             ],
-            providers: [_sidebar_service__WEBPACK_IMPORTED_MODULE_10__["SidebarService"], _slideshow_service__WEBPACK_IMPORTED_MODULE_12__["SlideshowService"]],
+            providers: [_sidebar_service__WEBPACK_IMPORTED_MODULE_10__["SidebarService"], _slideshow_service__WEBPACK_IMPORTED_MODULE_12__["SlideshowService"], _database_service__WEBPACK_IMPORTED_MODULE_16__["DatabaseService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/database.service.ts":
+/*!*************************************!*\
+  !*** ./src/app/database.service.ts ***!
+  \*************************************/
+/*! exports provided: DatabaseService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatabaseService", function() { return DatabaseService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var DatabaseService = /** @class */ (function () {
+    function DatabaseService() {
+        this.aboutProject = "en cours de rédaction...";
+        this.aboutAuthor = "en cours de rédaction...";
+    }
+    DatabaseService.prototype.getAboutAuthor = function () {
+        return this.aboutAuthor;
+    };
+    DatabaseService.prototype.getAboutProject = function () {
+        return this.aboutProject;
+    };
+    DatabaseService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], DatabaseService);
+    return DatabaseService;
 }());
 
 
@@ -504,7 +559,7 @@ var SidebarService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NpZGViYXIvc2lkZWJhci5jb21wb25lbnQuY3NzIn0= */"
+module.exports = ".active-link{\r\n    font-weight: bold;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxpQkFBaUI7QUFDckIiLCJmaWxlIjoic3JjL2FwcC9zaWRlYmFyL3NpZGViYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5hY3RpdmUtbGlua3tcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59Il19 */"
 
 /***/ }),
 
@@ -583,9 +638,6 @@ var SlideShowComponent = /** @class */ (function () {
         this.slideshowService = slideshowService;
     }
     SlideShowComponent.prototype.ngOnInit = function () {
-    };
-    SlideShowComponent.prototype.toggleSideBar = function () {
-        this.sidebarService.toggleSidebar();
     };
     SlideShowComponent.prototype.nextPage = function () {
         this.slideshowService.nextPage();
