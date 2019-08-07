@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p></p>\n<h3>A propos de l'auteur</h3>\n\n<p>{{databaseService.getAboutAuthor()}}</p>\n\n\n"
+module.exports = "<p></p>\n<h3>A propos de l'auteur</h3>\n\n<p><span [innerHtml]=\"(about| async)?.author\"></span></p>\n\n\n"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = "<p></p>\n<h3>A propos de l'auteur</h3>\n\n<p>{{databaseService
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p></p>\n<h3>A propos du projet \"Le Joyau d'Edsheran\"</h3>\n\n<p>{{databaseService.getAboutProject()}}</p>\n\n\n"
+module.exports = "<p></p>\n<h3>A propos du projet \"Le Joyau d'Edsheran\"</h3>\n\n<p><span [innerHtml]=\"(about| async)?.project\"></span></p>\n\n\n"
 
 /***/ }),
 
@@ -107,7 +107,7 @@ module.exports = "<div class=\"d-flex justify-content-center align-items-center\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Fib3V0LWF1dGhvci9hYm91dC1hdXRob3IuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = "* {\r\n    font-family: 'customFont',arial;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWJvdXQtYXV0aG9yL2Fib3V0LWF1dGhvci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksK0JBQStCO0VBQ2pDIiwiZmlsZSI6InNyYy9hcHAvYWJvdXQtYXV0aG9yL2Fib3V0LWF1dGhvci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiKiB7XHJcbiAgICBmb250LWZhbWlseTogJ2N1c3RvbUZvbnQnLGFyaWFsO1xyXG4gIH0iXX0= */"
 
 /***/ }),
 
@@ -130,6 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 var AboutAuthorComponent = /** @class */ (function () {
     function AboutAuthorComponent(databaseService) {
         this.databaseService = databaseService;
+        this.about = this.databaseService.getAbout();
     }
     AboutAuthorComponent.prototype.ngOnInit = function () {
     };
@@ -158,7 +159,7 @@ var AboutAuthorComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Fib3V0LXByb2plY3QvYWJvdXQtcHJvamVjdC5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "* {\r\n    font-family: 'customFont',arial;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWJvdXQtcHJvamVjdC9hYm91dC1wcm9qZWN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSwrQkFBK0I7RUFDakMiLCJmaWxlIjoic3JjL2FwcC9hYm91dC1wcm9qZWN0L2Fib3V0LXByb2plY3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIioge1xyXG4gICAgZm9udC1mYW1pbHk6ICdjdXN0b21Gb250JyxhcmlhbDtcclxuICB9Il19 */"
 
 /***/ }),
 
@@ -181,6 +182,7 @@ __webpack_require__.r(__webpack_exports__);
 var AboutProjectComponent = /** @class */ (function () {
     function AboutProjectComponent(databaseService) {
         this.databaseService = databaseService;
+        this.about = this.databaseService.getAbout();
     }
     AboutProjectComponent.prototype.ngOnInit = function () {
     };
@@ -259,7 +261,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "body {\r\n  overflow-x: hidden;\r\n\r\n\r\n}\r\n\r\n\r\n\r\n#sidebar-wrapper {\r\n  min-height: 100vh;\r\n  margin-left: -15rem;\r\n  transition: margin .25s ease-out;\r\n}\r\n\r\n\r\n\r\n#sidebar-wrapper .list-group {\r\n  width: 15rem;\r\n}\r\n\r\n\r\n\r\n#sidebar-wrapper {\r\n    margin-left: 0;\r\n  }\r\n\r\n\r\n\r\n#page-content-wrapper {\r\n    min-width: 0;\r\n    width: 100%;\r\n  }\r\n\r\n\r\n\r\n#sidebar-wrapper.toggled {\r\n    margin-left: -15rem;\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7OztBQUdwQjs7OztBQUlBO0VBQ0UsaUJBQWlCO0VBQ2pCLG1CQUFtQjtFQUluQixnQ0FBZ0M7QUFDbEM7Ozs7QUFHQTtFQUNFLFlBQVk7QUFDZDs7OztBQUdFO0lBQ0UsY0FBYztFQUNoQjs7OztBQUVBO0lBQ0UsWUFBWTtJQUNaLFdBQVc7RUFDYjs7OztBQUVEO0lBQ0csbUJBQW1CO0VBQ3JCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcclxuICBvdmVyZmxvdy14OiBoaWRkZW47XHJcblxyXG5cclxufVxyXG5cclxuXHJcblxyXG4jc2lkZWJhci13cmFwcGVyIHtcclxuICBtaW4taGVpZ2h0OiAxMDB2aDtcclxuICBtYXJnaW4tbGVmdDogLTE1cmVtO1xyXG4gIC13ZWJraXQtdHJhbnNpdGlvbjogbWFyZ2luIC4yNXMgZWFzZS1vdXQ7XHJcbiAgLW1vei10cmFuc2l0aW9uOiBtYXJnaW4gLjI1cyBlYXNlLW91dDtcclxuICAtby10cmFuc2l0aW9uOiBtYXJnaW4gLjI1cyBlYXNlLW91dDtcclxuICB0cmFuc2l0aW9uOiBtYXJnaW4gLjI1cyBlYXNlLW91dDtcclxufVxyXG5cclxuXHJcbiNzaWRlYmFyLXdyYXBwZXIgLmxpc3QtZ3JvdXAge1xyXG4gIHdpZHRoOiAxNXJlbTtcclxufVxyXG5cclxuXHJcbiAgI3NpZGViYXItd3JhcHBlciB7XHJcbiAgICBtYXJnaW4tbGVmdDogMDtcclxuICB9XHJcblxyXG4gICNwYWdlLWNvbnRlbnQtd3JhcHBlciB7XHJcbiAgICBtaW4td2lkdGg6IDA7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICB9XHJcblxyXG4gI3NpZGViYXItd3JhcHBlci50b2dnbGVkIHtcclxuICAgIG1hcmdpbi1sZWZ0OiAtMTVyZW07XHJcbiAgfVxyXG4iXX0= */"
+module.exports = "body {\r\n  overflow-x: hidden;\r\n\r\n\r\n}\r\n\r\n\r\n\r\n\r\n@font-face {\r\n  font-family: 'customFont';\r\n  src: url('komtxt__-webfont.woff2') format('woff2'),\r\n       url('komtxt__-webfont.woff') format('woff');\r\n  font-weight: normal;\r\n  font-style: normal;\r\n\r\n}\r\n\r\n\r\n\r\n\r\n#sidebar-wrapper {\r\n  min-height: 100vh;\r\n  margin-left: -15rem;\r\n  transition: margin .25s ease-out;\r\n}\r\n\r\n\r\n\r\n\r\n#sidebar-wrapper .list-group {\r\n  width: 15rem;\r\n}\r\n\r\n\r\n\r\n\r\n#sidebar-wrapper {\r\n    margin-left: 0;\r\n  }\r\n\r\n\r\n\r\n\r\n#page-content-wrapper {\r\n    min-width: 0;\r\n    width: 100%;\r\n  }\r\n\r\n\r\n\r\n\r\n#sidebar-wrapper.toggled {\r\n    margin-left: -15rem;\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7OztBQUdwQjs7Ozs7QUFLQTtFQUNFLHlCQUF5QjtFQUN6QjtrREFDK0Q7RUFDL0QsbUJBQW1CO0VBQ25CLGtCQUFrQjs7QUFFcEI7Ozs7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsbUJBQW1CO0VBSW5CLGdDQUFnQztBQUNsQzs7Ozs7QUFHQTtFQUNFLFlBQVk7QUFDZDs7Ozs7QUFHRTtJQUNFLGNBQWM7RUFDaEI7Ozs7O0FBRUE7SUFDRSxZQUFZO0lBQ1osV0FBVztFQUNiOzs7OztBQUVEO0lBQ0csbUJBQW1CO0VBQ3JCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcclxuICBvdmVyZmxvdy14OiBoaWRkZW47XHJcblxyXG5cclxufVxyXG5cclxuXHJcblxyXG5cclxuQGZvbnQtZmFjZSB7XHJcbiAgZm9udC1mYW1pbHk6ICdjdXN0b21Gb250JztcclxuICBzcmM6IHVybCgnLi4vYXNzZXRzL2ZvbnQva29tdHh0X18td2ViZm9udC53b2ZmMicpIGZvcm1hdCgnd29mZjInKSxcclxuICAgICAgIHVybCgnLi4vYXNzZXRzL2ZvbnQva29tdHh0X18td2ViZm9udC53b2ZmJykgZm9ybWF0KCd3b2ZmJyk7XHJcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxuICBmb250LXN0eWxlOiBub3JtYWw7XHJcblxyXG59XHJcblxyXG4jc2lkZWJhci13cmFwcGVyIHtcclxuICBtaW4taGVpZ2h0OiAxMDB2aDtcclxuICBtYXJnaW4tbGVmdDogLTE1cmVtO1xyXG4gIC13ZWJraXQtdHJhbnNpdGlvbjogbWFyZ2luIC4yNXMgZWFzZS1vdXQ7XHJcbiAgLW1vei10cmFuc2l0aW9uOiBtYXJnaW4gLjI1cyBlYXNlLW91dDtcclxuICAtby10cmFuc2l0aW9uOiBtYXJnaW4gLjI1cyBlYXNlLW91dDtcclxuICB0cmFuc2l0aW9uOiBtYXJnaW4gLjI1cyBlYXNlLW91dDtcclxufVxyXG5cclxuXHJcbiNzaWRlYmFyLXdyYXBwZXIgLmxpc3QtZ3JvdXAge1xyXG4gIHdpZHRoOiAxNXJlbTtcclxufVxyXG5cclxuXHJcbiAgI3NpZGViYXItd3JhcHBlciB7XHJcbiAgICBtYXJnaW4tbGVmdDogMDtcclxuICB9XHJcblxyXG4gICNwYWdlLWNvbnRlbnQtd3JhcHBlciB7XHJcbiAgICBtaW4td2lkdGg6IDA7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICB9XHJcblxyXG4gI3NpZGViYXItd3JhcHBlci50b2dnbGVkIHtcclxuICAgIG1hcmdpbi1sZWZ0OiAtMTVyZW07XHJcbiAgfVxyXG4iXX0= */"
 
 /***/ }),
 
@@ -400,24 +402,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatabaseService", function() { return DatabaseService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 var DatabaseService = /** @class */ (function () {
-    function DatabaseService() {
-        this.aboutProject = "en cours de rédaction...";
-        this.aboutAuthor = "en cours de rédaction...";
+    function DatabaseService(afDatabase) {
+        this.afDatabase = afDatabase;
     }
-    DatabaseService.prototype.getAboutAuthor = function () {
-        return this.aboutAuthor;
+    DatabaseService.prototype.getAbout = function () {
+        return this.afDatabase.object('/about').valueChanges();
     };
-    DatabaseService.prototype.getAboutProject = function () {
-        return this.aboutProject;
+    DatabaseService.prototype.getChapters = function () {
+        return this.afDatabase.list('/chapters');
     };
+    DatabaseService.ctorParameters = function () { return [
+        { type: angularfire2_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"] }
+    ]; };
     DatabaseService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"]])
     ], DatabaseService);
     return DatabaseService;
 }());
@@ -559,7 +566,7 @@ var SidebarService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".active-link{\r\n    font-weight: bold;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxpQkFBaUI7QUFDckIiLCJmaWxlIjoic3JjL2FwcC9zaWRlYmFyL3NpZGViYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5hY3RpdmUtbGlua3tcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59Il19 */"
+module.exports = ".active-link{\r\n    font-weight: bold;\r\n}\r\n\r\n* {\r\n    font-family: 'customFont',arial;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxpQkFBaUI7QUFDckI7O0FBRUE7SUFDSSwrQkFBK0I7RUFDakMiLCJmaWxlIjoic3JjL2FwcC9zaWRlYmFyL3NpZGViYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5hY3RpdmUtbGlua3tcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4qIHtcclxuICAgIGZvbnQtZmFtaWx5OiAnY3VzdG9tRm9udCcsYXJpYWw7XHJcbiAgfSJdfQ== */"
 
 /***/ }),
 
@@ -678,16 +685,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/storage */ "./node_modules/angularfire2/storage/index.js");
 /* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
-/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _database_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./database.service */ "./src/app/database.service.ts");
 
 
 
 
 var SlideshowService = /** @class */ (function () {
-    function SlideshowService(afStorage, afDatabase) {
+    function SlideshowService(afStorage, databaseService) {
         this.afStorage = afStorage;
-        this.afDatabase = afDatabase;
+        this.databaseService = databaseService;
         this.currentPage = 1;
         this.currentChapter = 1;
         this.pageMax = 0;
@@ -696,7 +702,7 @@ var SlideshowService = /** @class */ (function () {
     }
     SlideshowService.prototype.retrieveData = function () {
         var _this = this;
-        this.afDatabase.list('/chapters').valueChanges() // returns observable
+        this.databaseService.getChapters().valueChanges() // returns observable
             .subscribe(function (list) {
             _this.chaptersList = list;
             _this.computePageMax();
@@ -769,13 +775,13 @@ var SlideshowService = /** @class */ (function () {
     };
     SlideshowService.ctorParameters = function () { return [
         { type: angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"] },
-        { type: angularfire2_database__WEBPACK_IMPORTED_MODULE_3__["AngularFireDatabase"] }
+        { type: _database_service__WEBPACK_IMPORTED_MODULE_3__["DatabaseService"] }
     ]; };
     SlideshowService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"], angularfire2_database__WEBPACK_IMPORTED_MODULE_3__["AngularFireDatabase"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"], _database_service__WEBPACK_IMPORTED_MODULE_3__["DatabaseService"]])
     ], SlideshowService);
     return SlideshowService;
 }());
