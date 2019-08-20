@@ -85,7 +85,7 @@ module.exports = "<p>see-comments works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"text-center\">\r\n  <div *ngIf=\"router.url==='/slideshow'\">\r\n    <div class=\"text-muted h5\">Vous êtes:</div>\r\n    <div class=\"text-muted\">Page {{slideshowService.currentPage}}</div>\r\n    <div class=\"text-muted\"> Chapitre \"{{slideshowService.currentChapterTitle}}\" </div>\r\n  </div>\r\n  <nav class=\"navbar\">\r\n    <div class=\"\" id=\"navbarSupportedContent\">\r\n      <ul class=\"navbar-nav mr-auto  mx-auto text-left\">\r\n        <li class=\"nav-item   p-2\">\r\n          <a class=\"nav-link text-muted\" routerLink=\"slideshow\" routerLinkActive=\"active-link\">Accueil</a>\r\n        </li>\r\n\r\n        <li class=\"nav-item dropdown  p-2\">\r\n          <a class=\"nav-link dropdown-toggle text-muted\" routerLinkActive=\"active-link\" id=\"navbarDropdown\"\r\n            role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" routerLink=\"about\" aria-expanded=\"false\">\r\n            A propos\r\n          </a>\r\n          <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\r\n            <a class=\"dropdown-item\" routerLink=\"about/aboutProject\" routerLinkActive=\"active-link\">A propos du\r\n              projet</a>\r\n            <a class=\"dropdown-item\" routerLink=\"about/aboutAuthor\" routerLinkActive=\"active-link\">A propos de\r\n              l'auteur</a>\r\n          </div>\r\n        </li>\r\n\r\n\r\n        <!--\r\n            <li class=\"nav-item dropdown  p-2\" routerLinkActive=\"active\">\r\n              <a class=\"nav-link dropdown-toggle\" id=\"navbarDropdown2\" role=\"button\" data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                Chapitre\r\n              </a>\r\n              <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown2\">\r\n                <a class=\"dropdown-item\" href=\"#\">L'Ascenseur</a>\r\n                <a class=\"dropdown-item\" href=\"#\">Belle Plante</a>\r\n              </div>\r\n            </li>\r\n      \r\n            <li class=\"nav-item  p-2\">\r\n              <form class=\"form-inline\">\r\n                <div class=\"input-group\">\r\n      \r\n                  <input type=\"text\" class=\"form-control col-xs-2\" aria-label=\"numPage\" placeholder=\"aller à la page\"\r\n                    aria-describedby=\"basic-addon1\">\r\n                </div>\r\n              </form>\r\n            </li>\r\n            <span class=\"d-none d-lg-block\">\r\n              <li class=\"nav-item  p-2\">\r\n                <form class=\"form-inline\">\r\n                  <div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">\r\n                    <label class=\"btn btn-secondary active\">\r\n                      <input type=\"radio\" name=\"options\" id=\"option1\" autocomplete=\"off\" checked> 1 page\r\n                    </label>\r\n                    <label class=\"btn btn-secondary\">\r\n                      <input type=\"radio\" name=\"options\" id=\"option2\" autocomplete=\"off\"> 2 pages\r\n                    </label>\r\n                  </div>\r\n                </form>\r\n              </li>\r\n            </span>\r\n            <li class=\"nav-item dropdown  p-2\" routerLinkActive=\"active\">\r\n              <a class=\"nav-link dropdown-toggle\" id=\"navbarDropdown2\" role=\"button\" data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                Livre d'or\r\n              </a>\r\n              <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown2\">\r\n                <a class=\"dropdown-item\" routerLink=\"seeComments\">Consulter</a>\r\n                <a class=\"dropdown-item\" routerLink=\"publishComment\">Commenter</a>\r\n              </div>\r\n            </li>\r\n            -->\r\n      </ul>\r\n    </div>\r\n  </nav>\r\n</div>"
+module.exports = "<div class=\"text-center\">\r\n  <div class=\"text-muted\">Date de dernière publication :</div>\r\n  <div class=\"text-muted\">{{lastPublication|async}}</div>\r\n  <br/>\r\n  <div *ngIf=\"router.url==='/slideshow'\">\r\n    <div class=\"text-muted h5\">Vous êtes:</div>\r\n    <div class=\"text-muted\">Page {{slideshowService.currentPage}}</div>\r\n    <div class=\"text-muted\"> Chapitre \"{{slideshowService.currentChapterTitle}}\" </div>\r\n  </div>\r\n  <nav class=\"navbar\">\r\n    <div class=\"\" id=\"navbarSupportedContent\">\r\n      <ul class=\"navbar-nav mr-auto  mx-auto text-left\">\r\n        <li class=\"nav-item   p-2\">\r\n          <a class=\"nav-link text-muted\" routerLink=\"slideshow\" routerLinkActive=\"active-link\">Accueil</a>\r\n        </li>\r\n\r\n        <li class=\"nav-item dropdown  p-2\">\r\n          <a class=\"nav-link dropdown-toggle text-muted\" routerLinkActive=\"active-link\" id=\"navbarDropdown\"\r\n            role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" routerLink=\"about\" aria-expanded=\"false\">\r\n            A propos\r\n          </a>\r\n          <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\r\n            <a class=\"text-muted  dropdown-item\" routerLink=\"about/aboutProject\" routerLinkActive=\"active-link\">A propos du\r\n              projet</a>\r\n            <a class=\"text-muted  dropdown-item\" routerLink=\"about/aboutAuthor\" routerLinkActive=\"active-link\">A propos de\r\n              l'auteur</a>\r\n          </div>\r\n        </li>\r\n\r\n\r\n       \r\n            <li class=\"nav-item dropdown  p-2\" routerLinkActive=\"active\">\r\n              <a class=\"text-muted nav-link dropdown-toggle\" id=\"navbarDropdown2\" role=\"button\" data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                Chapitre\r\n              </a>\r\n              <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown2\">\r\n                <a *ngFor=\"let chapter of slideshowService.getChaptersOrder() ;let i=index;\" class=\"text-muted dropdown-item\" (click)=\"gotoChapter(i+1);\" >{{i+1}}. {{chapter.title}}</a>\r\n              </div>\r\n            </li>\r\n \r\n\r\n            <li class=\"nav-item  p-2\">\r\n\r\n\r\n              \r\n              <form class=\"form-inline\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && onSubmit(f);\" >\r\n                <div class=\"input-group\">\r\n      \r\n                  <input type=\"text\" class=\"form-control col-xs-2\" pattern=\"[0-9]*\"  name=\"numPage\" ngModel aria-label=\"numPage\" placeholder=\"aller à la page\"\r\n                    aria-describedby=\"basic-addon1\" required>\r\n                    <button class=\"btn btn-secondary\" type=\"submit\">></button>\r\n                </div>\r\n              </form>\r\n            </li>\r\n            <!--\r\n            <span class=\"d-none d-lg-block\">\r\n              <li class=\"nav-item  p-2\">\r\n                <form class=\"form-inline\">\r\n                  <div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">\r\n                    <label class=\"btn btn-secondary active\">\r\n                      <input type=\"radio\" name=\"options\" id=\"option1\" autocomplete=\"off\" checked> 1 page\r\n                    </label>\r\n                    <label class=\"btn btn-secondary\">\r\n                      <input type=\"radio\" name=\"options\" id=\"option2\" autocomplete=\"off\"> 2 pages\r\n                    </label>\r\n                  </div>\r\n                </form>\r\n              </li>\r\n            </span>\r\n            <li class=\"nav-item dropdown  p-2\" routerLinkActive=\"active\">\r\n              <a class=\"nav-link dropdown-toggle\" id=\"navbarDropdown2\" role=\"button\" data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                Livre d'or\r\n              </a>\r\n              <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown2\">\r\n                <a class=\"dropdown-item\" routerLink=\"seeComments\">Consulter</a>\r\n                <a class=\"dropdown-item\" routerLink=\"publishComment\">Commenter</a>\r\n              </div>\r\n            </li>\r\n            -->\r\n      </ul>\r\n    </div>\r\n  </nav>\r\n</div>"
 
 /***/ }),
 
@@ -96,7 +96,7 @@ module.exports = "<div class=\"text-center\">\r\n  <div *ngIf=\"router.url==='/s
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex justify-content-center align-items-center\">\n\n    <div *ngIf=\"slideshowService.currentPage>1\">\n        <a class=\"nav-link\" (click)=\"previousPage()\"> <i class=\"p-2 fa fa-chevron-left\" aria-hidden=\"true\"></i></a>\n    </div>\n    <div class=\"p-2 vh-100\">\n        <img [src]=\"slideshowService.imageUrl | async\" class=\"img-fluid\">\n    </div>\n    <div *ngIf=\"slideshowService.isLastPage(); then thenBlock else elseBlock\"></div>\n    <ng-template #thenBlock>\n        <div class=\"text-muted h5\">To be continued (soon)...</div>\n    </ng-template>\n    <ng-template #elseBlock> <a class=\"nav-link\" (click)=\"nextPage()\"> <i class=\"p-2 fa fa-chevron-right\"\n                aria-hidden=\"true\"></i></a></ng-template>\n\n\n</div>"
+module.exports = "<div class=\"d-flex justify-content-center align-items-center\">\n\n    <div *ngIf=\"slideshowService.currentPage>1\">\n        <a class=\"nav-link\" (click)=\"previousPage()\"> <i class=\"p-2 fa fa-chevron-left\" aria-hidden=\"true\"></i></a>\n    </div>\n    <div class=\"p-2 vh-100\">\n        <img [src]=\"slideshowService.imageUrl | async\" class=\"img-fluid\">\n    </div>\n    <div *ngIf=\"slideshowService.isLastPage(); then thenBlock else elseBlock\"></div>\n    <ng-template #thenBlock>\n        <div class=\"text-muted h6 customFont\">To be continued (soon)...</div>\n    </ng-template>\n    <ng-template #elseBlock> <a class=\"nav-link\" (click)=\"nextPage()\"> <i class=\"p-2 fa fa-chevron-right\"\n                aria-hidden=\"true\"></i></a></ng-template>\n\n\n</div>"
 
 /***/ }),
 
@@ -336,6 +336,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
 /* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var _database_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./database.service */ "./src/app/database.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
 
 
 
@@ -377,7 +379,9 @@ var AppModule = /** @class */ (function () {
                     projectId: "lecteurplanches",
                 }),
                 angularfire2_storage__WEBPACK_IMPORTED_MODULE_14__["AngularFireStorageModule"],
-                angularfire2_database__WEBPACK_IMPORTED_MODULE_15__["AngularFireDatabaseModule"]
+                angularfire2_database__WEBPACK_IMPORTED_MODULE_15__["AngularFireDatabaseModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_17__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_17__["ReactiveFormsModule"]
             ],
             providers: [_sidebar_service__WEBPACK_IMPORTED_MODULE_10__["SidebarService"], _slideshow_service__WEBPACK_IMPORTED_MODULE_12__["SlideshowService"], _database_service__WEBPACK_IMPORTED_MODULE_16__["DatabaseService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
@@ -413,6 +417,9 @@ var DatabaseService = /** @class */ (function () {
     }
     DatabaseService.prototype.getAbout = function () {
         return this.afDatabase.object('/about').valueChanges();
+    };
+    DatabaseService.prototype.getLastPublication = function () {
+        return this.afDatabase.object('/last_publication').valueChanges();
     };
     DatabaseService.prototype.getChapters = function () {
         return this.afDatabase.list('/chapters');
@@ -584,19 +591,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _slideshow_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../slideshow.service */ "./src/app/slideshow.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _database_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../database.service */ "./src/app/database.service.ts");
+
 
 
 
 
 var SidebarComponent = /** @class */ (function () {
-    function SidebarComponent(slideshowService, router) {
+    function SidebarComponent(slideshowService, databaseService, router) {
         this.slideshowService = slideshowService;
+        this.databaseService = databaseService;
         this.router = router;
+        this.lastPublication = databaseService.getLastPublication();
     }
     SidebarComponent.prototype.ngOnInit = function () {
     };
+    SidebarComponent.prototype.gotoChapter = function (chapter) {
+        this.slideshowService.gotoChapter(chapter);
+    };
+    SidebarComponent.prototype.onSubmit = function (form) {
+        this.slideshowService.gotoPage(form.value['numPage']);
+    };
     SidebarComponent.ctorParameters = function () { return [
         { type: _slideshow_service__WEBPACK_IMPORTED_MODULE_2__["SlideshowService"] },
+        { type: _database_service__WEBPACK_IMPORTED_MODULE_4__["DatabaseService"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
     ]; };
     SidebarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -605,7 +623,7 @@ var SidebarComponent = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./sidebar.component.html */ "./node_modules/raw-loader/index.js!./src/app/sidebar/sidebar.component.html"),
             styles: [__webpack_require__(/*! ./sidebar.component.css */ "./src/app/sidebar/sidebar.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_slideshow_service__WEBPACK_IMPORTED_MODULE_2__["SlideshowService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_slideshow_service__WEBPACK_IMPORTED_MODULE_2__["SlideshowService"], _database_service__WEBPACK_IMPORTED_MODULE_4__["DatabaseService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], SidebarComponent);
     return SidebarComponent;
 }());
@@ -621,7 +639,7 @@ var SidebarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".img-perso {\r\n    max-width: 90%;\r\n   height: 50%;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2xpZGUtc2hvdy9zbGlkZS1zaG93LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxjQUFjO0dBQ2YsV0FBVztFQUNaIiwiZmlsZSI6InNyYy9hcHAvc2xpZGUtc2hvdy9zbGlkZS1zaG93LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW1nLXBlcnNvIHtcclxuICAgIG1heC13aWR0aDogOTAlO1xyXG4gICBoZWlnaHQ6IDUwJTtcclxuICB9Il19 */"
+module.exports = ".img-perso {\r\n    max-width: 90%;\r\n   height: 50%;\r\n  }\r\n\r\n  .customFont {\r\n    font-family: 'customFont',arial;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2xpZGUtc2hvdy9zbGlkZS1zaG93LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxjQUFjO0dBQ2YsV0FBVztFQUNaOztFQUVBO0lBQ0UsK0JBQStCO0VBQ2pDIiwiZmlsZSI6InNyYy9hcHAvc2xpZGUtc2hvdy9zbGlkZS1zaG93LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW1nLXBlcnNvIHtcclxuICAgIG1heC13aWR0aDogOTAlO1xyXG4gICBoZWlnaHQ6IDUwJTtcclxuICB9XHJcblxyXG4gIC5jdXN0b21Gb250IHtcclxuICAgIGZvbnQtZmFtaWx5OiAnY3VzdG9tRm9udCcsYXJpYWw7XHJcbiAgfSJdfQ== */"
 
 /***/ }),
 
@@ -701,6 +719,7 @@ var SlideshowService = /** @class */ (function () {
         this.currentPage = 1;
         this.currentChapter = 1;
         this.pageMax = 0;
+        this.chaptersMap = new Map();
         this.setImageUrl();
         this.retrieveData();
     }
@@ -708,16 +727,16 @@ var SlideshowService = /** @class */ (function () {
         var _this = this;
         this.databaseService.getChapters().valueChanges() // returns observable
             .subscribe(function (list) {
-            _this.chaptersList = list;
-            _this.computePageMax();
+            _this.iterateChapters(list);
             _this.setChapterTitle();
         });
     };
-    SlideshowService.prototype.computePageMax = function () {
+    SlideshowService.prototype.iterateChapters = function (chaptersList) {
         var e_1, _a;
         try {
-            for (var _b = tslib__WEBPACK_IMPORTED_MODULE_0__["__values"](this.chaptersList), _c = _b.next(); !_c.done; _c = _b.next()) {
-                var chapter = _c.value;
+            for (var chaptersList_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__values"](chaptersList), chaptersList_1_1 = chaptersList_1.next(); !chaptersList_1_1.done; chaptersList_1_1 = chaptersList_1.next()) {
+                var chapter = chaptersList_1_1.value;
+                this.chaptersMap.set(chapter.number, chapter);
                 if (chapter.pageMax > this.pageMax) {
                     this.pageMax = chapter.pageMax;
                 }
@@ -726,31 +745,16 @@ var SlideshowService = /** @class */ (function () {
         catch (e_1_1) { e_1 = { error: e_1_1 }; }
         finally {
             try {
-                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                if (chaptersList_1_1 && !chaptersList_1_1.done && (_a = chaptersList_1.return)) _a.call(chaptersList_1);
             }
             finally { if (e_1) throw e_1.error; }
         }
     };
     SlideshowService.prototype.setChapterTitle = function () {
-        var e_2, _a;
-        if (this.chaptersList) {
-            try {
-                for (var _b = tslib__WEBPACK_IMPORTED_MODULE_0__["__values"](this.chaptersList), _c = _b.next(); !_c.done; _c = _b.next()) {
-                    var chapter = _c.value;
-                    if (chapter.pageMin <= this.currentPage && this.currentPage <= chapter.pageMax) {
-                        this.currentChapterTitle = chapter.title;
-                        this.pageMinChapter = chapter.pageMin;
-                        this.pageMaxChapter = chapter.pageMax;
-                    }
-                }
-            }
-            catch (e_2_1) { e_2 = { error: e_2_1 }; }
-            finally {
-                try {
-                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-                }
-                finally { if (e_2) throw e_2.error; }
-            }
+        if (this.chaptersMap && this.chaptersMap.has(this.currentChapter)) {
+            this.currentChapterTitle = this.chaptersMap.get(this.currentChapter).title;
+            this.pageMinChapter = this.chaptersMap.get(this.currentChapter).pageMin;
+            this.pageMaxChapter = this.chaptersMap.get(this.currentChapter).pageMax;
         }
     };
     SlideshowService.prototype.nextPage = function () {
@@ -765,8 +769,38 @@ var SlideshowService = /** @class */ (function () {
         this.checkChapter();
         this.setImageUrl();
     };
+    SlideshowService.prototype.getChaptersOrder = function () {
+        var chaptersSet = new Set();
+        for (var counter = 1; counter <= this.chaptersMap.size; counter++) {
+            chaptersSet.add(this.chaptersMap.get(counter));
+        }
+        return chaptersSet;
+    };
+    SlideshowService.prototype.gotoPage = function (page) {
+        if (page <= 0) {
+            this.currentPage = 1;
+        }
+        else {
+            if (page > this.pageMax) {
+                this.currentPage = this.pageMax;
+            }
+            else {
+                this.currentPage = page;
+            }
+        }
+        this.computePage();
+    };
+    SlideshowService.prototype.gotoChapter = function (chapter) {
+        this.currentPage = this.chaptersMap.get(chapter).pageMin;
+        this.computePage();
+    };
     SlideshowService.prototype.checkChapter = function () {
-        if ((this.currentPage > this.pageMaxChapter) || (this.currentPage < this.pageMinChapter)) {
+        if (this.currentPage > this.pageMaxChapter) {
+            this.currentChapter = this.currentChapter + 1;
+            this.setChapterTitle();
+        }
+        if (this.currentPage < this.pageMinChapter) {
+            this.currentChapter = this.currentChapter - 1;
             this.setChapterTitle();
         }
     };
