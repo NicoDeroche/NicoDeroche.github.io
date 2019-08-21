@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p></p>\n<h3>A propos de l'auteur</h3>\n\n<p><span [innerHtml]=\"(about| async)?.author\"></span></p>\n\n\n"
+module.exports = "<p></p>\n<h3>A propos de l'auteur</h3>\n<br>\n<p><span [innerHtml]=\"(about| async)?.author\"></span></p>\n\n\n"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = "<p></p>\n<h3>A propos de l'auteur</h3>\n\n<p><span [innerHtml]
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p></p>\n<h3>A propos du projet \"Le Joyau d'Edsheran\"</h3>\n\n<p><span [innerHtml]=\"(about| async)?.project\"></span></p>\n\n\n"
+module.exports = "<p></p>\n<h3>A propos du projet \"Le Joyau d'Edsheran\"</h3>\n<br>\n<p><span [innerHtml]=\"(about| async)?.project\"></span></p>\n\n\n"
 
 /***/ }),
 
@@ -74,7 +74,7 @@ module.exports = "<p>publish-comment works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>see-comments works!</p>\n"
+module.exports = "<p></p>\n<h3>Livre d'or</h3>\n\n<br>\n<div *ngFor=\"let comment of comments\">\n    <h6><b>Le {{comment.date}}, {{comment.author}} a dit :</b></h6>\n <p><i>\"{{comment.comment}}\"</i></p>\n <br/>\n    </div>"
 
 /***/ }),
 
@@ -85,7 +85,7 @@ module.exports = "<p>see-comments works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"text-center\">\r\n  <div class=\"text-muted customFont\">Date de dernière publication :</div>\r\n  <div class=\"text-muted customFont\">{{lastPublication|async}}</div>\r\n  <br />\r\n  <div *ngIf=\"router.url==='/slideshow'\">\r\n    <div class=\"text-muted h5 customFont\">Vous êtes:</div>\r\n    <div class=\"text-muted customFont\">Page {{slideshowService.currentPage}}</div>\r\n    <div class=\"text-muted customFont\"> Chapitre \"{{slideshowService.currentChapterTitle}}\" </div>\r\n  </div>\r\n  <nav class=\"navbar\">\r\n    <div class=\"\" id=\"navbarSupportedContent\">\r\n      <ul class=\"navbar-nav mr-auto  mx-auto text-left\">\r\n        <li class=\"nav-item   p-2\">\r\n          <a class=\"nav-link text-muted customFont\" routerLink=\"slideshow\" routerLinkActive=\"active-link\">Lecture BD</a>\r\n        </li>\r\n\r\n        <div *ngIf=\"router.url==='/slideshow'\">\r\n\r\n          <li class=\"nav-item dropdown  p-2\" routerLinkActive=\"active\">\r\n            <a class=\" customFont text-muted nav-link dropdown-toggle\" id=\"navbarDropdown2\" role=\"button\" data-toggle=\"dropdown\"\r\n              aria-haspopup=\"true\" aria-expanded=\"false\">\r\n              <i class=\"fas fa-robot\"></i> Chapitre\r\n            </a>\r\n            <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown2\">\r\n              <a *ngFor=\"let chapter of slideshowService.getChaptersOrder() ;let i=index;\"\r\n                class=\"text-muted  customFont dropdown-item\" (click)=\"gotoChapter(i+1);\">{{i+1}}. {{chapter.title}}</a>\r\n            </div>\r\n          </li>\r\n\r\n\r\n          <li class=\"nav-item  p-2\">\r\n\r\n\r\n\r\n            <form class=\"form-inline\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && onSubmit(f);\">\r\n              <div class=\"input-group\">\r\n                <i class=\"fas fa-robot text-muted\" aria-hidden=\"trur\"></i>\r\n                <input type=\"text\" class=\"form-control col-xs-2 customFont\" pattern=\"[0-9]*\" name=\"numPage\" ngModel\r\n                  aria-label=\"numPage\" placeholder=\"aller à la page\" aria-describedby=\"basic-addon1\" required>\r\n                <button class=\"btn btn-secondary\" type=\"submit\">></button>\r\n              </div>\r\n            </form>\r\n          </li>\r\n        </div>\r\n\r\n        <li class=\"nav-item dropdown  p-2\">\r\n          <a class=\"nav-link dropdown-toggle text-muted customFont\" routerLinkActive=\"active-link\" id=\"navbarDropdown\"\r\n            role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" routerLink=\"about\" aria-expanded=\"false\">\r\n            A propos\r\n          </a>\r\n          <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\r\n            <a class=\"text-muted  dropdown-item customFont\" routerLink=\"about/aboutProject\" routerLinkActive=\"active-link\">A propos\r\n              du\r\n              projet</a>\r\n            <a class=\"text-muted  dropdown-item customFont\" routerLink=\"about/aboutAuthor\" routerLinkActive=\"active-link\">A propos\r\n              de\r\n              l'auteur</a>\r\n          </div>\r\n        </li>\r\n\r\n\r\n  \r\n        <!--\r\n            <span class=\"d-none d-lg-block\">\r\n              <li class=\"nav-item  p-2\">\r\n                <form class=\"form-inline\">\r\n                  <div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">\r\n                    <label class=\"btn btn-secondary active\">\r\n                      <input type=\"radio\" name=\"options\" id=\"option1\" autocomplete=\"off\" checked> 1 page\r\n                    </label>\r\n                    <label class=\"btn btn-secondary\">\r\n                      <input type=\"radio\" name=\"options\" id=\"option2\" autocomplete=\"off\"> 2 pages\r\n                    </label>\r\n                  </div>\r\n                </form>\r\n              </li>\r\n            </span>\r\n            <li class=\"nav-item dropdown  p-2\" routerLinkActive=\"active\">\r\n              <a class=\"nav-link dropdown-toggle\" id=\"navbarDropdown2\" role=\"button\" data-toggle=\"dropdown\"\r\n                aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                Livre d'or\r\n              </a>\r\n              <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown2\">\r\n                <a class=\"dropdown-item\" routerLink=\"seeComments\">Consulter</a>\r\n                <a class=\"dropdown-item\" routerLink=\"publishComment\">Commenter</a>\r\n              </div>\r\n            </li>\r\n            -->\r\n      </ul>\r\n    </div>\r\n  </nav>\r\n</div>"
+module.exports = "<div class=\"text-center\">\r\n  <div class=\"text-muted customFont\">Date de dernière publication :</div>\r\n  <div class=\" customFont\">{{lastPublication|async}}</div>\r\n  <br />\r\n  <div *ngIf=\"router.url==='/slideshow'\">\r\n    <div class=\" h5 customFont\">Vous êtes:</div>\r\n    <div class=\" customFont\">Page {{slideshowService.currentPage}}</div>\r\n    <div class=\" customFont\"> Chapitre \"{{slideshowService.currentChapterTitle}}\" </div>\r\n  </div>\r\n  <nav class=\"navbar\">\r\n    <div class=\"\" id=\"navbarSupportedContent\">\r\n      <ul class=\"navbar-nav mr-auto  mx-auto text-left\">\r\n        <li class=\"nav-item   p-2\">\r\n          <a class=\"nav-link  customFont\" routerLink=\"slideshow\" routerLinkActive=\"active-link\">Lecture BD</a>\r\n        </li>\r\n\r\n        <div *ngIf=\"router.url==='/slideshow'\">\r\n\r\n          <li class=\"nav-item dropdown  p-2\" routerLinkActive=\"active\">\r\n            <a class=\" customFont  nav-link dropdown-toggle\" id=\"navbarDropdown2\" role=\"button\" data-toggle=\"dropdown\"\r\n              aria-haspopup=\"true\" aria-expanded=\"false\">\r\n              <i class=\"fas fa-robot text-muted\"></i> &nbsp;<span class=\" customFont\">Chapitre</span>\r\n            </a>\r\n            <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown2\">\r\n              <a *ngFor=\"let chapter of slideshowService.getChaptersOrder() ;let i=index;\"\r\n                class=\" dropdown-item\" (click)=\"gotoChapter(i+1);\"><span class=\"customFont\">{{i+1}}. {{chapter.title}}</span></a>\r\n            </div>\r\n          </li>\r\n\r\n\r\n          <li class=\"nav-item  p-2\">\r\n\r\n\r\n\r\n            <form class=\"form-inline\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && onSubmit(f);\">\r\n              <div class=\"input-group\">\r\n                <i class=\"fas fa-robot text-muted\" aria-hidden=\"trur\"></i>&nbsp;\r\n                <input type=\"text\" class=\"form-control col-xs-2 customFont\" required pattern=\"[0-9]*\" name=\"numPage\" ngModel\r\n                  aria-label=\"numPage\" placeholder=\"aller à la page\" aria-describedby=\"basic-addon1\" required>\r\n                <button class=\"btn btn-secondary\" type=\"submit\">></button>\r\n              </div>\r\n            </form>\r\n          </li>\r\n        </div>\r\n\r\n        <li class=\"nav-item dropdown  p-2\">\r\n          <a class=\"nav-link dropdown-toggle customFont\" routerLinkActive=\"active-link\" id=\"navbarDropdown\"\r\n            role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" routerLink=\"about\" aria-expanded=\"false\">\r\n            A propos\r\n          </a>\r\n          <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\r\n            <a class=\"dropdown-item customFont\" routerLink=\"about/aboutProject\" routerLinkActive=\"active-link\">A propos\r\n              du\r\n              projet</a>\r\n            <a class=\" dropdown-item customFont\" routerLink=\"about/aboutAuthor\" routerLinkActive=\"active-link\">A propos\r\n              de\r\n              l'auteur</a>\r\n          </div>\r\n        </li>\r\n\r\n\r\n  \r\n        <!--\r\n            <span class=\"d-none d-lg-block\">\r\n              <li class=\"nav-item  p-2\">\r\n                <form class=\"form-inline\">\r\n                  <div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">\r\n                    <label class=\"btn btn-secondary active\">\r\n                      <input type=\"radio\" name=\"options\" id=\"option1\" autocomplete=\"off\" checked> 1 page\r\n                    </label>\r\n                    <label class=\"btn btn-secondary\">\r\n                      <input type=\"radio\" name=\"options\" id=\"option2\" autocomplete=\"off\"> 2 pages\r\n                    </label>\r\n                  </div>\r\n                </form>\r\n              </li>\r\n            </span>\r\n          -->\r\n          \r\n            <li class=\"nav-item dropdown  p-2\" routerLinkActive=\"active\">\r\n              <a class=\"nav-link dropdown-toggle customFont\" routerLinkActive=\"active-link\" id=\"navbarDropdown2\"\r\n              role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" routerLink=\"about\" aria-expanded=\"false\">\r\n             Livre d'or\r\n            </a>\r\n              <div class=\"dropdown-menu \" aria-labelledby=\"navbarDropdown2\">\r\n                <a class=\"dropdown-item customFont  \" routerLink=\"seeComments\">Consulter</a>\r\n         <!--      <a class=\"dropdown-item\" routerLink=\"publishComment\">Commenter</a>-->\r\n              </div>\r\n            </li>\r\n          \r\n      </ul>\r\n    </div>\r\n  </nav>\r\n</div>"
 
 /***/ }),
 
@@ -96,7 +96,7 @@ module.exports = "<div class=\"text-center\">\r\n  <div class=\"text-muted custo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex justify-content-center align-items-center\">\n\n    <div *ngIf=\"slideshowService.currentPage>1\">\n        <a class=\"nav-link\" (click)=\"previousPage()\"> <i class=\"p-2 fas fa-chevron-circle-left\" aria-hidden=\"true\"></i></a>\n    </div>\n    <div class=\"p-2 vh-100\">\n        <img [src]=\"slideshowService.imageUrl | async\" class=\"img-fluid\">\n    </div>\n    <div *ngIf=\"slideshowService.isLastPage(); then thenBlock else elseBlock\"></div>\n    <ng-template #thenBlock>\n        <div class=\"text-muted h6 customFont\">To be continued (soon)...</div>\n    </ng-template>\n    <ng-template #elseBlock> <a class=\"nav-link\" (click)=\"nextPage()\"> <i class=\"p-2 fas fa-chevron-circle-right\"\n                aria-hidden=\"true\"></i></a></ng-template>\n\n\n</div>"
+module.exports = "<div class=\"d-flex justify-content-center align-items-center\">\n\n    <div *ngIf=\"slideshowService.currentPage>1\">\n        <a class=\"nav-link\" (click)=\"previousPage()\"> <i class=\"p-2 fas fa-chevron-circle-left text-muted\" aria-hidden=\"true\"></i></a>\n    </div>\n    <div class=\"p-2 vh-100\">\n        <img [src]=\"slideshowService.imageUrl | async\" class=\"img-fluid\">\n    </div>\n    <div *ngIf=\"slideshowService.isLastPage(); then thenBlock else elseBlock\"></div>\n    <ng-template #thenBlock>\n        <div class=\"h6 customFont\">To be continued (soon)...</div>\n    </ng-template>\n    <ng-template #elseBlock> <a class=\"nav-link\" (click)=\"nextPage()\"> <i class=\"p-2 fas fa-chevron-circle-right text-muted\"\n                aria-hidden=\"true\"></i></a></ng-template>\n\n\n</div>"
 
 /***/ }),
 
@@ -107,7 +107,7 @@ module.exports = "<div class=\"d-flex justify-content-center align-items-center\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "* {\r\n    font-family: 'customFont',arial;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWJvdXQtYXV0aG9yL2Fib3V0LWF1dGhvci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksK0JBQStCO0VBQ2pDIiwiZmlsZSI6InNyYy9hcHAvYWJvdXQtYXV0aG9yL2Fib3V0LWF1dGhvci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiKiB7XHJcbiAgICBmb250LWZhbWlseTogJ2N1c3RvbUZvbnQnLGFyaWFsO1xyXG4gIH0iXX0= */"
+module.exports = "* {\r\n    font-family: 'customFont',arial;\r\n    color:grey;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWJvdXQtYXV0aG9yL2Fib3V0LWF1dGhvci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksK0JBQStCO0lBQy9CLFVBQVU7RUFDWiIsImZpbGUiOiJzcmMvYXBwL2Fib3V0LWF1dGhvci9hYm91dC1hdXRob3IuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIioge1xyXG4gICAgZm9udC1mYW1pbHk6ICdjdXN0b21Gb250JyxhcmlhbDtcclxuICAgIGNvbG9yOmdyZXk7XHJcbiAgfSJdfQ== */"
 
 /***/ }),
 
@@ -159,7 +159,7 @@ var AboutAuthorComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "* {\r\n    font-family: 'customFont',arial;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWJvdXQtcHJvamVjdC9hYm91dC1wcm9qZWN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSwrQkFBK0I7RUFDakMiLCJmaWxlIjoic3JjL2FwcC9hYm91dC1wcm9qZWN0L2Fib3V0LXByb2plY3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIioge1xyXG4gICAgZm9udC1mYW1pbHk6ICdjdXN0b21Gb250JyxhcmlhbDtcclxuICB9Il19 */"
+module.exports = "* {\r\n    font-family: 'customFont',arial;\r\n    color:grey;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWJvdXQtcHJvamVjdC9hYm91dC1wcm9qZWN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSwrQkFBK0I7SUFDL0IsVUFBVTtFQUNaIiwiZmlsZSI6InNyYy9hcHAvYWJvdXQtcHJvamVjdC9hYm91dC1wcm9qZWN0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqIHtcclxuICAgIGZvbnQtZmFtaWx5OiAnY3VzdG9tRm9udCcsYXJpYWw7XHJcbiAgICBjb2xvcjpncmV5O1xyXG4gIH0iXX0= */"
 
 /***/ }),
 
@@ -424,6 +424,9 @@ var DatabaseService = /** @class */ (function () {
     DatabaseService.prototype.getChapters = function () {
         return this.afDatabase.list('/chapters');
     };
+    DatabaseService.prototype.getComments = function () {
+        return this.afDatabase.list('/comments');
+    };
     DatabaseService.ctorParameters = function () { return [
         { type: angularfire2_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"] }
     ]; };
@@ -492,7 +495,7 @@ var PublishCommentComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NlZS1jb21tZW50cy9zZWUtY29tbWVudHMuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = "* {\r\n    font-family: 'customFont',arial;\r\n    color:grey;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2VlLWNvbW1lbnRzL3NlZS1jb21tZW50cy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksK0JBQStCO0lBQy9CLFVBQVU7RUFDWiIsImZpbGUiOiJzcmMvYXBwL3NlZS1jb21tZW50cy9zZWUtY29tbWVudHMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIioge1xyXG4gICAgZm9udC1mYW1pbHk6ICdjdXN0b21Gb250JyxhcmlhbDtcclxuICAgIGNvbG9yOmdyZXk7XHJcbiAgfSJdfQ== */"
 
 /***/ }),
 
@@ -508,20 +511,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SeeCommentsComponent", function() { return SeeCommentsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _database_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../database.service */ "./src/app/database.service.ts");
+
 
 
 var SeeCommentsComponent = /** @class */ (function () {
-    function SeeCommentsComponent() {
+    function SeeCommentsComponent(databaseService) {
+        var _this = this;
+        this.databaseService = databaseService;
+        this.databaseService.getComments().valueChanges() // returns observable
+            .subscribe(function (list) {
+            _this.comments = list;
+        });
     }
     SeeCommentsComponent.prototype.ngOnInit = function () {
     };
+    SeeCommentsComponent.ctorParameters = function () { return [
+        { type: _database_service__WEBPACK_IMPORTED_MODULE_2__["DatabaseService"] }
+    ]; };
     SeeCommentsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-see-comments',
             template: __webpack_require__(/*! raw-loader!./see-comments.component.html */ "./node_modules/raw-loader/index.js!./src/app/see-comments/see-comments.component.html"),
             styles: [__webpack_require__(/*! ./see-comments.component.css */ "./src/app/see-comments/see-comments.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_database_service__WEBPACK_IMPORTED_MODULE_2__["DatabaseService"]])
     ], SeeCommentsComponent);
     return SeeCommentsComponent;
 }());
@@ -573,7 +587,7 @@ var SidebarService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".active-link{\r\n    font-weight: bold;\r\n}\r\n\r\n.customFont {\r\n    font-family: 'customFont',arial;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxpQkFBaUI7QUFDckI7O0FBRUE7SUFDSSwrQkFBK0I7RUFDakMiLCJmaWxlIjoic3JjL2FwcC9zaWRlYmFyL3NpZGViYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5hY3RpdmUtbGlua3tcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4uY3VzdG9tRm9udCB7XHJcbiAgICBmb250LWZhbWlseTogJ2N1c3RvbUZvbnQnLGFyaWFsO1xyXG4gIH0iXX0= */"
+module.exports = ".active-link{\r\n    font-weight: bold;\r\n}\r\n\r\n.customFont {\r\n    font-family: 'customFont',arial;\r\n    color:grey;\r\n  }\r\n\r\n.ng-invalid:not(form)  {\r\n    border:  solid red; /* red */\r\n  }\r\n\r\n.ng-pristine:not(form)  {\r\n    border:  solid lightgrey 1px; \r\n  }\r\n\r\n \r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxpQkFBaUI7QUFDckI7O0FBRUE7SUFDSSwrQkFBK0I7SUFDL0IsVUFBVTtFQUNaOztBQUdBO0lBQ0Usa0JBQWtCLEVBQUUsUUFBUTtFQUM5Qjs7QUFFQTtJQUNFLDRCQUE0QjtFQUM5QiIsImZpbGUiOiJzcmMvYXBwL3NpZGViYXIvc2lkZWJhci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmFjdGl2ZS1saW5re1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5jdXN0b21Gb250IHtcclxuICAgIGZvbnQtZmFtaWx5OiAnY3VzdG9tRm9udCcsYXJpYWw7XHJcbiAgICBjb2xvcjpncmV5O1xyXG4gIH1cclxuXHJcbiAgXHJcbiAgLm5nLWludmFsaWQ6bm90KGZvcm0pICB7XHJcbiAgICBib3JkZXI6ICBzb2xpZCByZWQ7IC8qIHJlZCAqL1xyXG4gIH1cclxuXHJcbiAgLm5nLXByaXN0aW5lOm5vdChmb3JtKSAge1xyXG4gICAgYm9yZGVyOiAgc29saWQgbGlnaHRncmV5IDFweDsgXHJcbiAgfVxyXG5cclxuICJdfQ== */"
 
 /***/ }),
 
@@ -639,7 +653,7 @@ var SidebarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".img-perso {\r\n    max-width: 90%;\r\n   height: 50%;\r\n  }\r\n\r\n  \r\n.customFont {\r\n  font-family: 'customFont',arial;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2xpZGUtc2hvdy9zbGlkZS1zaG93LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxjQUFjO0dBQ2YsV0FBVztFQUNaOzs7QUFHRjtFQUNFLCtCQUErQjtBQUNqQyIsImZpbGUiOiJzcmMvYXBwL3NsaWRlLXNob3cvc2xpZGUtc2hvdy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltZy1wZXJzbyB7XHJcbiAgICBtYXgtd2lkdGg6IDkwJTtcclxuICAgaGVpZ2h0OiA1MCU7XHJcbiAgfVxyXG5cclxuICBcclxuLmN1c3RvbUZvbnQge1xyXG4gIGZvbnQtZmFtaWx5OiAnY3VzdG9tRm9udCcsYXJpYWw7XHJcbn0iXX0= */"
+module.exports = ".img-perso {\r\n    max-width: 90%;\r\n   height: 50%;\r\n  }\r\n\r\n  \r\n.customFont {\r\n  font-family: 'customFont',arial;\r\n  color:grey;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2xpZGUtc2hvdy9zbGlkZS1zaG93LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxjQUFjO0dBQ2YsV0FBVztFQUNaOzs7QUFHRjtFQUNFLCtCQUErQjtFQUMvQixVQUFVO0FBQ1oiLCJmaWxlIjoic3JjL2FwcC9zbGlkZS1zaG93L3NsaWRlLXNob3cuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pbWctcGVyc28ge1xyXG4gICAgbWF4LXdpZHRoOiA5MCU7XHJcbiAgIGhlaWdodDogNTAlO1xyXG4gIH1cclxuXHJcbiAgXHJcbi5jdXN0b21Gb250IHtcclxuICBmb250LWZhbWlseTogJ2N1c3RvbUZvbnQnLGFyaWFsO1xyXG4gIGNvbG9yOmdyZXk7XHJcbn0iXX0= */"
 
 /***/ }),
 
