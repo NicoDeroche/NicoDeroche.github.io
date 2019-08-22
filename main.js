@@ -45,6 +45,17 @@ module.exports = "<p></p>\n<h3>A propos du projet \"Le Joyau d'Edsheran\"</h3>\n
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/admin.component.html":
+/*!**********************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/admin.component.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p></p>\n<h3 class=\"customFont\">Administration</h3>\n\n<br>\n<form  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && onSubmit(f);\">\n    <div class=\"form-group\">\n  <label for=\"pseudo customFont\"> <i class=\"fas fa-robot text-muted\" aria-hidden=\"true\"></i>&nbsp;<span class=\"customFont\">Titre</span></label>\n      <input type=\"text\" class=\"form-control col-xs-2 customFont\" required  name=\"chapitre\" ngModel\n        aria-label=\"chapitre\"  aria-describedby=\"basic-addon1\">\n    </div>\n        <button class=\"btn btn-secondary\" type=\"submit\">Créer</button>\n  \n  </form>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/app.component.html":
 /*!**************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/app.component.html ***!
@@ -63,7 +74,7 @@ module.exports = "<div class=\"d-flex\" id=\"wrapper\">\n\n  <div id=\"sidebar-w
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>publish-comment works!</p>\n"
+module.exports = "<p></p>\n<h3 class=\"customFont\">Publier un commentaire</h3>\n\n<br>\n<form  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && onSubmit(f);\">\n    <div class=\"form-group\">\n  <label for=\"pseudo customFont\"> <i class=\"fas fa-robot text-muted\" aria-hidden=\"trur\"></i>&nbsp;<span class=\"customFont\">Pseudo</span></label>\n      <input type=\"text\" class=\"form-control col-xs-2 customFont\" required  name=\"pseudo\" ngModel\n        aria-label=\"pseudo\"  aria-describedby=\"basic-addon1\" required>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"comment\" class=\"customFont\">Commentaire</label>\n            <textarea type=\"text\" class=\"form-control col-xs-2 customFont\"  name=\"comment\" ngModel\n              aria-label=\"comment\" aria-describedby=\"basic-addon1\" required></textarea>\n          </div>\n        <button class=\"btn btn-secondary\" type=\"submit\">Publier</button>\n  \n  </form>"
 
 /***/ }),
 
@@ -74,7 +85,7 @@ module.exports = "<p>publish-comment works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p></p>\n<h3>Livre d'or</h3>\n\n<br>\n<div *ngFor=\"let comment of comments\">\n    <h6><b>Le {{comment.date}}, {{comment.author}} a dit :</b></h6>\n <p><i>\"{{comment.comment}}\"</i></p>\n <br/>\n    </div>"
+module.exports = "<p></p>\n<h3 class=\"customFont\">Livre d'or</h3>\n\n<br>\n<div *ngFor=\"let comment of comments\">\n    <h6><i class=\"fas fa-robot text-muted\" aria-hidden=\"trur\"></i>&nbsp;<b class=\"customFont\">Le {{comment.date}}, {{comment.author}} a dit :</b></h6>\n <p><i><span class=\"customFont\">\"{{comment.comment}}\"</span></i></p>\n <br/>\n    </div>"
 
 /***/ }),
 
@@ -85,7 +96,7 @@ module.exports = "<p></p>\n<h3>Livre d'or</h3>\n\n<br>\n<div *ngFor=\"let commen
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"text-center\">\r\n  <div class=\"text-muted customFont\">Date de dernière publication :</div>\r\n  <div class=\" customFont\">{{lastPublication|async}}</div>\r\n  <br />\r\n  <div *ngIf=\"router.url==='/slideshow'\">\r\n    <div class=\" h5 customFont\">Vous êtes:</div>\r\n    <div class=\" customFont\">Page {{slideshowService.currentPage}}</div>\r\n    <div class=\" customFont\"> Chapitre \"{{slideshowService.currentChapterTitle}}\" </div>\r\n  </div>\r\n  <nav class=\"navbar\">\r\n    <div class=\"\" id=\"navbarSupportedContent\">\r\n      <ul class=\"navbar-nav mr-auto  mx-auto text-left\">\r\n        <li class=\"nav-item   p-2\">\r\n          <a class=\"nav-link  customFont\" routerLink=\"slideshow\" routerLinkActive=\"active-link\">Lecture BD</a>\r\n        </li>\r\n\r\n        <div *ngIf=\"router.url==='/slideshow'\">\r\n\r\n          <li class=\"nav-item dropdown  p-2\" routerLinkActive=\"active\">\r\n            <a class=\" customFont  nav-link dropdown-toggle\" id=\"navbarDropdown2\" role=\"button\" data-toggle=\"dropdown\"\r\n              aria-haspopup=\"true\" aria-expanded=\"false\">\r\n              <i class=\"fas fa-robot text-muted\"></i> &nbsp;<span class=\" customFont\">Chapitre</span>\r\n            </a>\r\n            <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown2\">\r\n              <a *ngFor=\"let chapter of slideshowService.getChaptersOrder() ;let i=index;\"\r\n                class=\" dropdown-item\" (click)=\"gotoChapter(i+1);\"><span class=\"customFont\">{{i+1}}. {{chapter.title}}</span></a>\r\n            </div>\r\n          </li>\r\n\r\n\r\n          <li class=\"nav-item  p-2\">\r\n\r\n\r\n\r\n            <form class=\"form-inline\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && onSubmit(f);\">\r\n              <div class=\"input-group\">\r\n                <i class=\"fas fa-robot text-muted\" aria-hidden=\"trur\"></i>&nbsp;\r\n                <input type=\"text\" class=\"form-control col-xs-2 customFont\" required pattern=\"[0-9]*\" name=\"numPage\" ngModel\r\n                  aria-label=\"numPage\" placeholder=\"aller à la page\" aria-describedby=\"basic-addon1\" required>\r\n                <button class=\"btn btn-secondary\" type=\"submit\">></button>\r\n              </div>\r\n            </form>\r\n          </li>\r\n        </div>\r\n\r\n        <li class=\"nav-item dropdown  p-2\">\r\n          <a class=\"nav-link dropdown-toggle customFont\" routerLinkActive=\"active-link\" id=\"navbarDropdown\"\r\n            role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" routerLink=\"about\" aria-expanded=\"false\">\r\n            A propos\r\n          </a>\r\n          <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\r\n            <a class=\"dropdown-item customFont\" routerLink=\"about/aboutProject\" routerLinkActive=\"active-link\">A propos\r\n              du\r\n              projet</a>\r\n            <a class=\" dropdown-item customFont\" routerLink=\"about/aboutAuthor\" routerLinkActive=\"active-link\">A propos\r\n              de\r\n              l'auteur</a>\r\n          </div>\r\n        </li>\r\n\r\n\r\n  \r\n        <!--\r\n            <span class=\"d-none d-lg-block\">\r\n              <li class=\"nav-item  p-2\">\r\n                <form class=\"form-inline\">\r\n                  <div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">\r\n                    <label class=\"btn btn-secondary active\">\r\n                      <input type=\"radio\" name=\"options\" id=\"option1\" autocomplete=\"off\" checked> 1 page\r\n                    </label>\r\n                    <label class=\"btn btn-secondary\">\r\n                      <input type=\"radio\" name=\"options\" id=\"option2\" autocomplete=\"off\"> 2 pages\r\n                    </label>\r\n                  </div>\r\n                </form>\r\n              </li>\r\n            </span>\r\n          -->\r\n          \r\n            <li class=\"nav-item dropdown  p-2\" routerLinkActive=\"active\">\r\n              <a class=\"nav-link dropdown-toggle customFont\" routerLinkActive=\"active-link\" id=\"navbarDropdown2\"\r\n              role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" routerLink=\"about\" aria-expanded=\"false\">\r\n             Livre d'or\r\n            </a>\r\n              <div class=\"dropdown-menu \" aria-labelledby=\"navbarDropdown2\">\r\n                <a class=\"dropdown-item customFont  \" routerLink=\"seeComments\">Consulter</a>\r\n         <!--      <a class=\"dropdown-item\" routerLink=\"publishComment\">Commenter</a>-->\r\n              </div>\r\n            </li>\r\n          \r\n      </ul>\r\n    </div>\r\n  </nav>\r\n</div>"
+module.exports = "<div class=\"text-center\">\r\n  <div class=\"text-muted customFont\">Date de dernière publication :</div>\r\n  <div class=\" customFont\">{{lastPublication|async}}</div>\r\n  <br />\r\n  <div *ngIf=\"router.url==='/slideshow'\">\r\n    <div class=\" h5 customFont\">Vous êtes:</div>\r\n    <div class=\" customFont\">Page {{slideshowService.currentPage}}</div>\r\n    <div class=\" customFont\"> Chapitre \"{{slideshowService.currentChapterTitle}}\" </div>\r\n  </div>\r\n  <nav class=\"navbar\">\r\n    <div class=\"\" id=\"navbarSupportedContent\">\r\n      <ul class=\"navbar-nav mr-auto  mx-auto text-left\">\r\n        <li class=\"nav-item   p-2\">\r\n          <a class=\"nav-link  customFont\" routerLink=\"slideshow\" routerLinkActive=\"active-link\">Lecture BD</a>\r\n        </li>\r\n\r\n        <div *ngIf=\"router.url==='/slideshow'\">\r\n\r\n          <li class=\"nav-item dropdown  p-2\" routerLinkActive=\"active\">\r\n            <a class=\" customFont  nav-link dropdown-toggle\" id=\"navbarDropdown2\" role=\"button\" data-toggle=\"dropdown\"\r\n              aria-haspopup=\"true\" aria-expanded=\"false\">\r\n              <i class=\"fas fa-robot text-muted\"></i> &nbsp;<span class=\" customFont\">Chapitre</span>\r\n            </a>\r\n            <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown2\">\r\n              <a *ngFor=\"let chapter of slideshowService.getChaptersOrder() ;let i=index;\"\r\n                class=\" dropdown-item\" (click)=\"gotoChapter(i+1);\"><span class=\"customFont\">{{i+1}}. {{chapter.title}}</span></a>\r\n            </div>\r\n          </li>\r\n\r\n\r\n          <li class=\"nav-item  p-2\">\r\n\r\n\r\n\r\n            <form class=\"form-inline\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && onSubmit(f);\">\r\n              <div class=\"input-group\">\r\n                <i class=\"fas fa-robot text-muted\" aria-hidden=\"trur\"></i>&nbsp;\r\n                <input type=\"text\" class=\"form-control col-xs-2 customFont\" required pattern=\"[0-9]*\" name=\"numPage\" ngModel\r\n                  aria-label=\"numPage\" placeholder=\"aller à la page\" aria-describedby=\"basic-addon1\" required>\r\n                <button class=\"btn btn-secondary\" type=\"submit\">></button>\r\n              </div>\r\n            </form>\r\n          </li>\r\n        </div>\r\n\r\n        <li class=\"nav-item dropdown  p-2\">\r\n          <a class=\"nav-link dropdown-toggle customFont\" routerLinkActive=\"active-link\" id=\"navbarDropdown\"\r\n            role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" routerLink=\"about\" aria-expanded=\"false\">\r\n            A propos\r\n          </a>\r\n          <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\r\n            <a class=\"dropdown-item customFont\" routerLink=\"about/aboutProject\" routerLinkActive=\"active-link\">A propos\r\n              du\r\n              projet</a>\r\n            <a class=\" dropdown-item customFont\" routerLink=\"about/aboutAuthor\" routerLinkActive=\"active-link\">A propos\r\n              de\r\n              l'auteur</a>\r\n          </div>\r\n        </li>\r\n\r\n\r\n  \r\n        <!--\r\n            <span class=\"d-none d-lg-block\">\r\n              <li class=\"nav-item  p-2\">\r\n                <form class=\"form-inline\">\r\n                  <div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">\r\n                    <label class=\"btn btn-secondary active\">\r\n                      <input type=\"radio\" name=\"options\" id=\"option1\" autocomplete=\"off\" checked> 1 page\r\n                    </label>\r\n                    <label class=\"btn btn-secondary\">\r\n                      <input type=\"radio\" name=\"options\" id=\"option2\" autocomplete=\"off\"> 2 pages\r\n                    </label>\r\n                  </div>\r\n                </form>\r\n              </li>\r\n            </span>\r\n          -->\r\n          \r\n            <li class=\"nav-item dropdown  p-2\" routerLinkActive=\"active\">\r\n              <a class=\"nav-link dropdown-toggle customFont\" routerLinkActive=\"active-link\" id=\"navbarDropdown2\"\r\n              role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" routerLink=\"about\" aria-expanded=\"false\">\r\n             Livre d'or\r\n            </a>\r\n              <div class=\"dropdown-menu \" aria-labelledby=\"navbarDropdown2\">\r\n                <a class=\"dropdown-item customFont  \" routerLink=\"seeComments\">Consulter</a>\r\n           <a class=\"dropdown-item customFont\" routerLink=\"publishComment\">Commenter</a>\r\n              </div>\r\n            </li>\r\n          \r\n      </ul>\r\n    </div>\r\n  </nav>\r\n</div>"
 
 /***/ }),
 
@@ -204,6 +215,51 @@ var AboutProjectComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/admin/admin.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/admin/admin.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".customFont {\r\n    font-family: 'customFont',arial;\r\n    color:grey;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vYWRtaW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLCtCQUErQjtJQUMvQixVQUFVO0VBQ1oiLCJmaWxlIjoic3JjL2FwcC9hZG1pbi9hZG1pbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmN1c3RvbUZvbnQge1xyXG4gICAgZm9udC1mYW1pbHk6ICdjdXN0b21Gb250JyxhcmlhbDtcclxuICAgIGNvbG9yOmdyZXk7XHJcbiAgfSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/admin/admin.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/admin/admin.component.ts ***!
+  \******************************************/
+/*! exports provided: AdminComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminComponent", function() { return AdminComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var AdminComponent = /** @class */ (function () {
+    function AdminComponent() {
+    }
+    AdminComponent.prototype.ngOnInit = function () {
+    };
+    AdminComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-admin',
+            template: __webpack_require__(/*! raw-loader!./admin.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/admin.component.html"),
+            styles: [__webpack_require__(/*! ./admin.component.css */ "./src/app/admin/admin.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], AdminComponent);
+    return AdminComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -222,6 +278,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _about_author_about_author_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./about-author/about-author.component */ "./src/app/about-author/about-author.component.ts");
 /* harmony import */ var _see_comments_see_comments_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./see-comments/see-comments.component */ "./src/app/see-comments/see-comments.component.ts");
 /* harmony import */ var _publish_comment_publish_comment_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./publish-comment/publish-comment.component */ "./src/app/publish-comment/publish-comment.component.ts");
+/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
+
 
 
 
@@ -236,6 +294,7 @@ var routes = [
     { path: 'about/aboutProject', component: _about_project_about_project_component__WEBPACK_IMPORTED_MODULE_3__["AboutProjectComponent"] },
     { path: 'about/aboutAuthor', component: _about_author_about_author_component__WEBPACK_IMPORTED_MODULE_5__["AboutAuthorComponent"] },
     { path: 'seeComments', component: _see_comments_see_comments_component__WEBPACK_IMPORTED_MODULE_6__["SeeCommentsComponent"] },
+    { path: 'suite', component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_8__["AdminComponent"] },
     { path: 'publishComment', component: _publish_comment_publish_comment_component__WEBPACK_IMPORTED_MODULE_7__["PublishCommentComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -337,6 +396,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var _database_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./database.service */ "./src/app/database.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+
+
 
 
 
@@ -367,7 +430,8 @@ var AppModule = /** @class */ (function () {
                 _see_comments_see_comments_component__WEBPACK_IMPORTED_MODULE_7__["SeeCommentsComponent"],
                 _publish_comment_publish_comment_component__WEBPACK_IMPORTED_MODULE_8__["PublishCommentComponent"],
                 _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_11__["SidebarComponent"],
-                _slide_show_slide_show_component__WEBPACK_IMPORTED_MODULE_9__["SlideShowComponent"]
+                _slide_show_slide_show_component__WEBPACK_IMPORTED_MODULE_9__["SlideShowComponent"],
+                _admin_admin_component__WEBPACK_IMPORTED_MODULE_18__["AdminComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -383,7 +447,7 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_17__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_17__["ReactiveFormsModule"]
             ],
-            providers: [_sidebar_service__WEBPACK_IMPORTED_MODULE_10__["SidebarService"], _slideshow_service__WEBPACK_IMPORTED_MODULE_12__["SlideshowService"], _database_service__WEBPACK_IMPORTED_MODULE_16__["DatabaseService"]],
+            providers: [_sidebar_service__WEBPACK_IMPORTED_MODULE_10__["SidebarService"], _slideshow_service__WEBPACK_IMPORTED_MODULE_12__["SlideshowService"], _database_service__WEBPACK_IMPORTED_MODULE_16__["DatabaseService"], _angular_common__WEBPACK_IMPORTED_MODULE_19__["DatePipe"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
@@ -406,14 +470,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatabaseService", function() { return DatabaseService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
-/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _model_chapter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./model/chapter */ "./src/app/model/chapter.ts");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _model_comment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./model/comment */ "./src/app/model/comment.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+
+
+
 
 
 
 var DatabaseService = /** @class */ (function () {
-    function DatabaseService(afDatabase) {
+    function DatabaseService(afDatabase, datePipe) {
         this.afDatabase = afDatabase;
+        this.datePipe = datePipe;
     }
     DatabaseService.prototype.getAbout = function () {
         return this.afDatabase.object('/about').valueChanges();
@@ -427,16 +498,72 @@ var DatabaseService = /** @class */ (function () {
     DatabaseService.prototype.getComments = function () {
         return this.afDatabase.list('/comments');
     };
+    DatabaseService.prototype.addChapter = function (chapterTitle) {
+        var newChapter = new _model_chapter__WEBPACK_IMPORTED_MODULE_2__["Chapter"]();
+        newChapter.title = chapterTitle;
+        newChapter.number = 30;
+        newChapter.pageMin = 50;
+        newChapter.pageMax = 60;
+        this.afDatabase.list('/chapters').push(newChapter);
+    };
+    DatabaseService.prototype.addComment = function (author, comment) {
+        var newComment = new _model_comment__WEBPACK_IMPORTED_MODULE_4__["Comment"]();
+        newComment.author = author;
+        newComment.comment = comment;
+        newComment.date = this.datePipe.transform(new Date(), 'dd/MM/yyyy');
+        this.afDatabase.list('/comments').push(newComment);
+    };
     DatabaseService.ctorParameters = function () { return [
-        { type: angularfire2_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"] }
+        { type: angularfire2_database__WEBPACK_IMPORTED_MODULE_3__["AngularFireDatabase"] },
+        { type: _angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"] }
     ]; };
     DatabaseService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_database__WEBPACK_IMPORTED_MODULE_3__["AngularFireDatabase"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"]])
     ], DatabaseService);
     return DatabaseService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/model/chapter.ts":
+/*!**********************************!*\
+  !*** ./src/app/model/chapter.ts ***!
+  \**********************************/
+/*! exports provided: Chapter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Chapter", function() { return Chapter; });
+var Chapter = /** @class */ (function () {
+    function Chapter() {
+    }
+    return Chapter;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/model/comment.ts":
+/*!**********************************!*\
+  !*** ./src/app/model/comment.ts ***!
+  \**********************************/
+/*! exports provided: Comment */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Comment", function() { return Comment; });
+var Comment = /** @class */ (function () {
+    function Comment() {
+    }
+    return Comment;
 }());
 
 
@@ -450,7 +577,7 @@ var DatabaseService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3B1Ymxpc2gtY29tbWVudC9wdWJsaXNoLWNvbW1lbnQuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = ".customFont {\r\n    font-family: 'customFont',arial;\r\n    color:grey;\r\n  }\r\n\r\n  .ng-invalid:not(form)  {\r\n    border-left:  solid red; /* red */\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHVibGlzaC1jb21tZW50L3B1Ymxpc2gtY29tbWVudC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksK0JBQStCO0lBQy9CLFVBQVU7RUFDWjs7RUFFQTtJQUNFLHVCQUF1QixFQUFFLFFBQVE7RUFDbkMiLCJmaWxlIjoic3JjL2FwcC9wdWJsaXNoLWNvbW1lbnQvcHVibGlzaC1jb21tZW50LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY3VzdG9tRm9udCB7XHJcbiAgICBmb250LWZhbWlseTogJ2N1c3RvbUZvbnQnLGFyaWFsO1xyXG4gICAgY29sb3I6Z3JleTtcclxuICB9XHJcblxyXG4gIC5uZy1pbnZhbGlkOm5vdChmb3JtKSAge1xyXG4gICAgYm9yZGVyLWxlZnQ6ICBzb2xpZCByZWQ7IC8qIHJlZCAqL1xyXG4gIH1cclxuIl19 */"
 
 /***/ }),
 
@@ -466,20 +593,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PublishCommentComponent", function() { return PublishCommentComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _database_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../database.service */ "./src/app/database.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
 
 
 var PublishCommentComponent = /** @class */ (function () {
-    function PublishCommentComponent() {
+    function PublishCommentComponent(databaseService, router) {
+        this.databaseService = databaseService;
+        this.router = router;
     }
     PublishCommentComponent.prototype.ngOnInit = function () {
     };
+    PublishCommentComponent.prototype.onSubmit = function (form) {
+        this.databaseService.addComment(form.value['pseudo'], form.value['comment']);
+        this.router.navigate(['seeComments']);
+    };
+    PublishCommentComponent.ctorParameters = function () { return [
+        { type: _database_service__WEBPACK_IMPORTED_MODULE_2__["DatabaseService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+    ]; };
     PublishCommentComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-publish-comment',
             template: __webpack_require__(/*! raw-loader!./publish-comment.component.html */ "./node_modules/raw-loader/index.js!./src/app/publish-comment/publish-comment.component.html"),
             styles: [__webpack_require__(/*! ./publish-comment.component.css */ "./src/app/publish-comment/publish-comment.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_database_service__WEBPACK_IMPORTED_MODULE_2__["DatabaseService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], PublishCommentComponent);
     return PublishCommentComponent;
 }());
@@ -495,7 +636,7 @@ var PublishCommentComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "* {\r\n    font-family: 'customFont',arial;\r\n    color:grey;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2VlLWNvbW1lbnRzL3NlZS1jb21tZW50cy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksK0JBQStCO0lBQy9CLFVBQVU7RUFDWiIsImZpbGUiOiJzcmMvYXBwL3NlZS1jb21tZW50cy9zZWUtY29tbWVudHMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIioge1xyXG4gICAgZm9udC1mYW1pbHk6ICdjdXN0b21Gb250JyxhcmlhbDtcclxuICAgIGNvbG9yOmdyZXk7XHJcbiAgfSJdfQ== */"
+module.exports = ".customFont {\r\n  font-family: 'customFont',arial;\r\n  color:grey;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2VlLWNvbW1lbnRzL3NlZS1jb21tZW50cy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsK0JBQStCO0VBQy9CLFVBQVU7QUFDWiIsImZpbGUiOiJzcmMvYXBwL3NlZS1jb21tZW50cy9zZWUtY29tbWVudHMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jdXN0b21Gb250IHtcclxuICBmb250LWZhbWlseTogJ2N1c3RvbUZvbnQnLGFyaWFsO1xyXG4gIGNvbG9yOmdyZXk7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -587,7 +728,7 @@ var SidebarService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".active-link{\r\n    font-weight: bold;\r\n}\r\n\r\n.customFont {\r\n    font-family: 'customFont',arial;\r\n    color:grey;\r\n  }\r\n\r\n.ng-invalid:not(form)  {\r\n    border:  solid red; /* red */\r\n  }\r\n\r\n.ng-pristine:not(form)  {\r\n    border:  solid lightgrey 1px; \r\n  }\r\n\r\n \r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxpQkFBaUI7QUFDckI7O0FBRUE7SUFDSSwrQkFBK0I7SUFDL0IsVUFBVTtFQUNaOztBQUdBO0lBQ0Usa0JBQWtCLEVBQUUsUUFBUTtFQUM5Qjs7QUFFQTtJQUNFLDRCQUE0QjtFQUM5QiIsImZpbGUiOiJzcmMvYXBwL3NpZGViYXIvc2lkZWJhci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmFjdGl2ZS1saW5re1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5jdXN0b21Gb250IHtcclxuICAgIGZvbnQtZmFtaWx5OiAnY3VzdG9tRm9udCcsYXJpYWw7XHJcbiAgICBjb2xvcjpncmV5O1xyXG4gIH1cclxuXHJcbiAgXHJcbiAgLm5nLWludmFsaWQ6bm90KGZvcm0pICB7XHJcbiAgICBib3JkZXI6ICBzb2xpZCByZWQ7IC8qIHJlZCAqL1xyXG4gIH1cclxuXHJcbiAgLm5nLXByaXN0aW5lOm5vdChmb3JtKSAge1xyXG4gICAgYm9yZGVyOiAgc29saWQgbGlnaHRncmV5IDFweDsgXHJcbiAgfVxyXG5cclxuICJdfQ== */"
+module.exports = ".active-link{\r\n    font-weight: bold;\r\n}\r\n\r\n.customFont {\r\n    font-family: 'customFont',arial;\r\n    color:grey;\r\n  }\r\n\r\n.ng-valid:not(form)  {\r\n    border-left:  solid lightgreen; /* red */\r\n  }\r\n\r\n.ng-invalid:not(form)  {\r\n    border-left:  solid red; /* red */\r\n  }\r\n\r\n.ng-pristine:not(form)  {\r\n    border:  solid lightgrey 1px; \r\n  }\r\n\r\n \r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxpQkFBaUI7QUFDckI7O0FBRUE7SUFDSSwrQkFBK0I7SUFDL0IsVUFBVTtFQUNaOztBQUVBO0lBQ0UsOEJBQThCLEVBQUUsUUFBUTtFQUMxQzs7QUFDQTtJQUNFLHVCQUF1QixFQUFFLFFBQVE7RUFDbkM7O0FBRUE7SUFDRSw0QkFBNEI7RUFDOUIiLCJmaWxlIjoic3JjL2FwcC9zaWRlYmFyL3NpZGViYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5hY3RpdmUtbGlua3tcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4uY3VzdG9tRm9udCB7XHJcbiAgICBmb250LWZhbWlseTogJ2N1c3RvbUZvbnQnLGFyaWFsO1xyXG4gICAgY29sb3I6Z3JleTtcclxuICB9XHJcblxyXG4gIC5uZy12YWxpZDpub3QoZm9ybSkgIHtcclxuICAgIGJvcmRlci1sZWZ0OiAgc29saWQgbGlnaHRncmVlbjsgLyogcmVkICovXHJcbiAgfVxyXG4gIC5uZy1pbnZhbGlkOm5vdChmb3JtKSAge1xyXG4gICAgYm9yZGVyLWxlZnQ6ICBzb2xpZCByZWQ7IC8qIHJlZCAqL1xyXG4gIH1cclxuXHJcbiAgLm5nLXByaXN0aW5lOm5vdChmb3JtKSAge1xyXG4gICAgYm9yZGVyOiAgc29saWQgbGlnaHRncmV5IDFweDsgXHJcbiAgfVxyXG5cclxuICJdfQ== */"
 
 /***/ }),
 
