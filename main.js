@@ -52,7 +52,7 @@ module.exports = "<p></p>\n<h3>A propos du projet \"Le Joyau d'Edsheran\"</h3>\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p></p>\n<h3 class=\"customFont\">Administration</h3>\n\n<br>\n<form  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && onSubmit(f);\">\n    <div class=\"form-group\">\n  <label for=\"pseudo customFont\"> <i class=\"fas fa-robot text-muted\" aria-hidden=\"true\"></i>&nbsp;<span class=\"customFont\">Titre</span></label>\n      <input type=\"text\" class=\"form-control col-xs-2 customFont\" required  name=\"chapitre\" ngModel\n        aria-label=\"chapitre\"  aria-describedby=\"basic-addon1\">\n    </div>\n        <button class=\"btn btn-secondary\" type=\"submit\">Créer</button>\n  \n  </form>"
+module.exports = "<p></p>\n<h3 class=\"customFont\">Administration</h3>\n\n<br>\n<div *ngIf=\"afAuth.user | async as user; then thenBlock else elseBlock\"></div>\n<ng-template #thenBlock>\n        <button class=\"btn btn-secondary\" (click)=\"logout()\">Logout</button>\n</ng-template>\n<ng-template #elseBlock>\n        <button class=\"btn btn-secondary\" (click)=\"login()\">Login</button>\n    </ng-template>\n\n  <p></p>\n\n \n\n \n\n\n<form  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && onSubmit(f);\">\n    <div class=\"form-group\">\n  <label class=\"customFont\"> <i class=\"fas fa-robot text-muted\" aria-hidden=\"true\"></i>&nbsp;<span class=\"customFont\">Titre</span></label>\n      <input type=\"text\" class=\"form-control col-xs-2 customFont\"  name=\"chapitre\" ngModel\n        aria-label=\"chapitre\"  aria-describedby=\"basic-addon1\">\n    </div>\n\n   \n    <div class=\"form-group\">\n        <label class=\"customFont\"> <i class=\"fas fa-robot text-muted\" aria-hidden=\"true\"></i>&nbsp;<span class=\"customFont\">Image</span></label>\n\n    <input type=\"file\" (change)=\"detectFiles($event)\"\n    class=\"form-control\" accept=\".jpg\">\n\n    </div>\n        <button class=\"btn btn-secondary\" type=\"submit\">Créer</button>\n  \n     \n  </form>"
 
 /***/ }),
 
@@ -74,7 +74,7 @@ module.exports = "<div class=\"d-flex\" id=\"wrapper\">\n\n  <div id=\"sidebar-w
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p></p>\n<h3 class=\"customFont\">Publier un commentaire</h3>\n\n<br>\n<form  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && onSubmit(f);\">\n    <div class=\"form-group\">\n  <label for=\"pseudo customFont\"> <i class=\"fas fa-robot text-muted\" aria-hidden=\"trur\"></i>&nbsp;<span class=\"customFont\">Pseudo</span></label>\n      <input type=\"text\" class=\"form-control col-xs-2 customFont\" required  name=\"pseudo\" ngModel\n        aria-label=\"pseudo\"  aria-describedby=\"basic-addon1\" required>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"comment\" class=\"customFont\">Commentaire</label>\n            <textarea type=\"text\" class=\"form-control col-xs-2 customFont\"  name=\"comment\" ngModel\n              aria-label=\"comment\" aria-describedby=\"basic-addon1\" required></textarea>\n          </div>\n        <button class=\"btn btn-secondary\" type=\"submit\">Publier</button>\n  \n  </form>"
+module.exports = "<p></p>\n<h3 class=\"customFont\">Publier un commentaire</h3>\n<br>\n<p class=\"customFont\">Si vous avez aimé cette BD, n'hésitez pas à mettre un petit commentaire !<br> La réalisation d'une BD en tant qu'amateur est un travail de longue haleine, et c'est toujours plaisant d'avoir un petit encouragement ;)</p>\n<br>\n<form  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && onSubmit(f);\">\n    <div class=\"form-group\">\n  <label for=\"pseudo customFont\"> <i class=\"fas fa-robot text-muted\" aria-hidden=\"trur\"></i>&nbsp;<span class=\"customFont\">Pseudo</span></label>\n      <input type=\"text\" class=\"form-control col-xs-2 customFont\" required  name=\"pseudo\" ngModel\n        aria-label=\"pseudo\"  aria-describedby=\"basic-addon1\" required>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"comment\" class=\"customFont\">Commentaire</label>\n            <textarea type=\"text\" class=\"form-control col-xs-2 customFont\"  name=\"comment\" ngModel\n              aria-label=\"comment\" aria-describedby=\"basic-addon1\" required></textarea>\n          </div>\n        <button class=\"btn btn-secondary\" type=\"submit\">Publier</button>\n  \n  </form>"
 
 /***/ }),
 
@@ -85,7 +85,7 @@ module.exports = "<p></p>\n<h3 class=\"customFont\">Publier un commentaire</h3>\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p></p>\n<h3 class=\"customFont\">Livre d'or</h3>\n\n<br>\n<div *ngFor=\"let comment of comments\">\n    <h6><i class=\"fas fa-robot text-muted\" aria-hidden=\"trur\"></i>&nbsp;<b class=\"customFont\">Le {{comment.date}}, {{comment.author}} a dit :</b></h6>\n <p><i><span class=\"customFont\">\"{{comment.comment}}\"</span></i></p>\n <br/>\n    </div>"
+module.exports = "<p></p>\n<h3 class=\"customFont\">Livre d'or</h3>\n<br>\n<p class=\"customFont\">Si vous avez aimé cette BD, n'hésitez pas à mettre un petit commentaire !<br> La réalisation d'une BD en tant qu'amateur est un travail de longue haleine, et c'est toujours plaisant d'avoir un petit encouragement ;)</p>\n<br>\n<div *ngFor=\"let comment of comments\">\n    <h6><i class=\"fas fa-robot text-muted\" aria-hidden=\"true\"></i>&nbsp;<b class=\"customFont\">Le {{comment.date}}, {{comment.author}} a dit :</b></h6>\n <p><i><span class=\"customFont\">\"{{comment.comment}}\"</span></i></p>\n <br/>\n    </div>"
 
 /***/ }),
 
@@ -238,20 +238,60 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminComponent", function() { return AdminComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _database_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../database.service */ "./src/app/database.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _slideshow_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../slideshow.service */ "./src/app/slideshow.service.ts");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angularfire2/auth */ "./node_modules/angularfire2/auth/index.js");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(angularfire2_auth__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
 
 
 var AdminComponent = /** @class */ (function () {
-    function AdminComponent() {
+    function AdminComponent(databaseService, afAuth, slideshowService, router) {
+        this.databaseService = databaseService;
+        this.afAuth = afAuth;
+        this.slideshowService = slideshowService;
+        this.router = router;
     }
     AdminComponent.prototype.ngOnInit = function () {
     };
+    AdminComponent.prototype.login = function () {
+        this.afAuth.auth.signInWithPopup(new firebase_app__WEBPACK_IMPORTED_MODULE_6__["auth"].GoogleAuthProvider()).catch(function (error) { console.log("--------sign in with popup error ----", error.message); });
+    };
+    AdminComponent.prototype.logout = function () {
+        this.afAuth.auth.signOut();
+    };
+    AdminComponent.prototype.onSubmit = function (form) {
+        if (form.value['chapitre'] !== "") {
+            this.slideshowService.addChapter(form.value['chapitre']);
+        }
+        if (this.newFile) {
+            this.slideshowService.addImage(this.newFile);
+        }
+        this.router.navigate(['slideshow']);
+    };
+    AdminComponent.prototype.detectFiles = function (event) {
+        this.newFile = event.target.files[0];
+    };
+    AdminComponent.ctorParameters = function () { return [
+        { type: _database_service__WEBPACK_IMPORTED_MODULE_2__["DatabaseService"] },
+        { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuth"] },
+        { type: _slideshow_service__WEBPACK_IMPORTED_MODULE_4__["SlideshowService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+    ]; };
     AdminComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-admin',
             template: __webpack_require__(/*! raw-loader!./admin.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/admin.component.html"),
             styles: [__webpack_require__(/*! ./admin.component.css */ "./src/app/admin/admin.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_database_service__WEBPACK_IMPORTED_MODULE_2__["DatabaseService"], angularfire2_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuth"], _slideshow_service__WEBPACK_IMPORTED_MODULE_4__["SlideshowService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], AdminComponent);
     return AdminComponent;
 }());
@@ -398,6 +438,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! angularfire2/auth */ "./node_modules/angularfire2/auth/index.js");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(angularfire2_auth__WEBPACK_IMPORTED_MODULE_20__);
+
 
 
 
@@ -438,12 +481,14 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
                 angularfire2__WEBPACK_IMPORTED_MODULE_13__["AngularFireModule"].initializeApp({
                     apiKey: "AIzaSyAzCYjsZeHK_uKbiNKAvxGWWOiziw1xQsc",
+                    authDomain: "lecteurplanches.firebaseapp.com",
                     databaseURL: "lecteurplanches.firebaseio.com",
                     storageBucket: "lecteurplanches.appspot.com",
                     projectId: "lecteurplanches",
                 }),
                 angularfire2_storage__WEBPACK_IMPORTED_MODULE_14__["AngularFireStorageModule"],
                 angularfire2_database__WEBPACK_IMPORTED_MODULE_15__["AngularFireDatabaseModule"],
+                angularfire2_auth__WEBPACK_IMPORTED_MODULE_20__["AngularFireAuthModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_17__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_17__["ReactiveFormsModule"]
             ],
@@ -470,12 +515,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatabaseService", function() { return DatabaseService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _model_chapter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./model/chapter */ "./src/app/model/chapter.ts");
-/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
-/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _model_comment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./model/comment */ "./src/app/model/comment.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _model_comment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./model/comment */ "./src/app/model/comment.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 
 
 
@@ -498,30 +541,31 @@ var DatabaseService = /** @class */ (function () {
     DatabaseService.prototype.getComments = function () {
         return this.afDatabase.list('/comments');
     };
-    DatabaseService.prototype.addChapter = function (chapterTitle) {
-        var newChapter = new _model_chapter__WEBPACK_IMPORTED_MODULE_2__["Chapter"]();
-        newChapter.title = chapterTitle;
-        newChapter.number = 30;
-        newChapter.pageMin = 50;
-        newChapter.pageMax = 60;
-        this.afDatabase.list('/chapters').push(newChapter);
+    DatabaseService.prototype.addChapter = function (newChapter) {
+        this.afDatabase.object('/chapters/' + (newChapter.number - 1)).update(newChapter);
+    };
+    DatabaseService.prototype.addImage = function (chapter) {
+        var currentDate = this.datePipe.transform(new Date(), 'dd/MM/yyyy');
+        this.afDatabase.object('/last_publication').set(currentDate);
+        this.afDatabase.object('/chapters/' + (chapter.number - 1)).update(chapter);
     };
     DatabaseService.prototype.addComment = function (author, comment) {
-        var newComment = new _model_comment__WEBPACK_IMPORTED_MODULE_4__["Comment"]();
+        var newComment = new _model_comment__WEBPACK_IMPORTED_MODULE_3__["Comment"]();
         newComment.author = author;
         newComment.comment = comment;
-        newComment.date = this.datePipe.transform(new Date(), 'dd/MM/yyyy');
+        var currentDate = this.datePipe.transform(new Date(), 'dd/MM/yyyy');
+        newComment.date = currentDate;
         this.afDatabase.list('/comments').push(newComment);
     };
     DatabaseService.ctorParameters = function () { return [
-        { type: angularfire2_database__WEBPACK_IMPORTED_MODULE_3__["AngularFireDatabase"] },
-        { type: _angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"] }
+        { type: angularfire2_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"] },
+        { type: _angular_common__WEBPACK_IMPORTED_MODULE_4__["DatePipe"] }
     ]; };
     DatabaseService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_database__WEBPACK_IMPORTED_MODULE_3__["AngularFireDatabase"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["DatePipe"]])
     ], DatabaseService);
     return DatabaseService;
 }());
@@ -662,7 +706,7 @@ var SeeCommentsComponent = /** @class */ (function () {
         this.databaseService = databaseService;
         this.databaseService.getComments().valueChanges() // returns observable
             .subscribe(function (list) {
-            _this.comments = list;
+            _this.comments = list.reverse();
         });
     }
     SeeCommentsComponent.prototype.ngOnInit = function () {
@@ -862,7 +906,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/storage */ "./node_modules/angularfire2/storage/index.js");
 /* harmony import */ var angularfire2_storage__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _database_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./database.service */ "./src/app/database.service.ts");
+/* harmony import */ var _model_chapter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./model/chapter */ "./src/app/model/chapter.ts");
+/* harmony import */ var _database_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./database.service */ "./src/app/database.service.ts");
+
 
 
 
@@ -873,7 +919,8 @@ var SlideshowService = /** @class */ (function () {
         this.databaseService = databaseService;
         this.currentPage = 1;
         this.currentChapter = 1;
-        this.pageMax = 0;
+        this.pageMax = 1;
+        this.chapterMax = 1;
         this.chaptersMap = new Map();
         this.setImageUrl();
         this.retrieveData();
@@ -894,6 +941,7 @@ var SlideshowService = /** @class */ (function () {
                 this.chaptersMap.set(chapter.number, chapter);
                 if (chapter.pageMax > this.pageMax) {
                     this.pageMax = chapter.pageMax;
+                    this.chapterMax = chapter.number;
                 }
             }
         }
@@ -941,6 +989,7 @@ var SlideshowService = /** @class */ (function () {
             }
             else {
                 this.currentPage = page;
+                this.checkChapter();
             }
         }
         this.computePage();
@@ -949,13 +998,37 @@ var SlideshowService = /** @class */ (function () {
         this.currentPage = this.chaptersMap.get(chapter).pageMin;
         this.computePage();
     };
+    SlideshowService.prototype.addChapter = function (chapterTitle) {
+        var newChapter = new _model_chapter__WEBPACK_IMPORTED_MODULE_3__["Chapter"]();
+        newChapter.title = chapterTitle;
+        newChapter.number = this.chapterMax + 1;
+        newChapter.pageMin = this.pageMax + 1;
+        newChapter.pageMax = this.pageMax + 1;
+        //on positionne chaptermax et le map car le addimage arrive juste apres
+        //et la map n'est pas encore recalculee
+        this.chapterMax = newChapter.number;
+        this.pageMax = newChapter.pageMax;
+        this.chaptersMap.set(newChapter.number, newChapter);
+        this.databaseService.addChapter(newChapter);
+    };
     SlideshowService.prototype.checkChapter = function () {
-        if (this.currentPage > this.pageMaxChapter) {
-            this.currentChapter = this.currentChapter + 1;
-            this.setChapterTitle();
-        }
-        if (this.currentPage < this.pageMinChapter) {
-            this.currentChapter = this.currentChapter - 1;
+        var e_2, _a;
+        if (this.currentPage > this.pageMaxChapter || this.currentPage < this.pageMinChapter) {
+            try {
+                for (var _b = tslib__WEBPACK_IMPORTED_MODULE_0__["__values"](this.chaptersMap.values()), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var chapter = _c.value;
+                    if (this.currentPage >= chapter.pageMin && this.currentPage <= chapter.pageMax) {
+                        this.currentChapter = chapter.number;
+                    }
+                }
+            }
+            catch (e_2_1) { e_2 = { error: e_2_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_2) throw e_2.error; }
+            }
             this.setChapterTitle();
         }
     };
@@ -966,15 +1039,26 @@ var SlideshowService = /** @class */ (function () {
         var ref = this.afStorage.ref(this.currentPage + '.jpg');
         this.imageUrl = ref.getDownloadURL();
     };
+    SlideshowService.prototype.addImage = function (file) {
+        this.afStorage.upload(file.name, file);
+        var newPageMax = +file.name.replace(".jpg", "");
+        var chapter = this.chaptersMap.get(this.chapterMax);
+        chapter.pageMax = newPageMax;
+        if (this.currentChapter === this.chapterMax) {
+            this.pageMaxChapter = newPageMax;
+        }
+        //la map sera recalculée automatiquement puisqu'on touche aux chapitres
+        this.databaseService.addImage(chapter);
+    };
     SlideshowService.ctorParameters = function () { return [
         { type: angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"] },
-        { type: _database_service__WEBPACK_IMPORTED_MODULE_3__["DatabaseService"] }
+        { type: _database_service__WEBPACK_IMPORTED_MODULE_4__["DatabaseService"] }
     ]; };
     SlideshowService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"], _database_service__WEBPACK_IMPORTED_MODULE_3__["DatabaseService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"], _database_service__WEBPACK_IMPORTED_MODULE_4__["DatabaseService"]])
     ], SlideshowService);
     return SlideshowService;
 }());
