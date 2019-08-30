@@ -481,7 +481,7 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
                 angularfire2__WEBPACK_IMPORTED_MODULE_13__["AngularFireModule"].initializeApp({
                     apiKey: "AIzaSyAzCYjsZeHK_uKbiNKAvxGWWOiziw1xQsc",
-                    authDomain: "lecteurplanches.firebaseapp.com",
+                    authDomain: "nicoderoche.github.io",
                     databaseURL: "lecteurplanches.firebaseio.com",
                     storageBucket: "lecteurplanches.appspot.com",
                     projectId: "lecteurplanches",
